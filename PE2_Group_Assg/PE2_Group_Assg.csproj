@@ -164,6 +164,7 @@
     <Content Include="Fonts\artico-black.otf" />
     <Content Include="Fonts\articocond.otf" />
     <Content Include="WebForm\Login.aspx" />
+    <Content Include="WebForm\ResetPassword.aspx" />
     <Content Include="WebForm\WebForm2.aspx" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -281,6 +282,13 @@
     </Compile>
     <Compile Include="WebForm\ProductImageHandler.ashx.cs">
       <DependentUpon>ProductImageHandler.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="WebForm\ResetPassword.aspx.cs">
+      <DependentUpon>ResetPassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm\ResetPassword.aspx.designer.cs">
+      <DependentUpon>ResetPassword.aspx</DependentUpon>
     </Compile>
     <Compile Include="WebForm\WebForm2.aspx.cs">
       <DependentUpon>WebForm2.aspx</DependentUpon>

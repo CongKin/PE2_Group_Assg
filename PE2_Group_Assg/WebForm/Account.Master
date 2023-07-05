@@ -25,6 +25,20 @@
             transform: translateY(-50%);
         }
 
+        .textbox{
+            border-radius:30px;
+            font-size:16px;
+            padding:10px 20px 10px 20px;
+            width:60%;
+            min-width:500px;
+            margin-bottom:5px;
+            margin-top:5px;
+        }
+
+        h1{
+            font-size:45px;
+        }
+
     </style>
 </head>
 <body>
