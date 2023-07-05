@@ -1,1 +1,9 @@
-﻿
+﻿@font-face {
+    font-family: 'artico-black';
+    src: url('../Fonts/artico-black.otf') format('truetype');
+}
+
+@font-face {
+    font-family: 'articocond';
+    src: url('../Fonts/articocond.otf') format('truetype');
+}
