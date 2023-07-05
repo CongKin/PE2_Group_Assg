@@ -137,11 +137,11 @@
             </table>
 
             <div class =" content">
-                <asp:DataList ID="cartList" CssClass="dataList" runat="server" RepeatColumns="3" RepeatDirection="Horizontal" 
-                    OnEditCommand="dl1_EditCommand"      
+                <asp:DataList ID="cartList" CssClass="dataList" runat="server" RepeatColumns="3" RepeatDirection="Horizontal"> 
+                    <!--OnEditCommand="dl1_EditCommand"      
                     OnCancelCommand="dl1_CancelCommand"      
                     OnUpdateCommand="dl1_updateCommand"      
-                    OnDeleteCommand="dl1_DeleteCommand">
+                    OnDeleteCommand="dl1_DeleteCommand">-->
                     <ItemTemplate>
                         <table>
                             <tr>
