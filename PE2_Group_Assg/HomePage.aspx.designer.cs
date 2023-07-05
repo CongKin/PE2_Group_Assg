@@ -7,11 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WebApplication1
+namespace PE2_Group_Assg
 {
 
 
-    public partial class WebForm1
+    public partial class HomePage
     {
 
         /// <summary>

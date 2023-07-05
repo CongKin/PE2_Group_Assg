@@ -21,7 +21,7 @@ namespace PE2_Group_Assg
             }
         }
 
-        public void Bind()
+        /*public void Bind()
         {
             SqlCommand cmd = new SqlCommand("select * from Employee", con);
             SqlDataAdapter dataAdapter = new SqlDataAdapter(cmd);
@@ -40,8 +40,8 @@ namespace PE2_Group_Assg
         {
             cartList.EditItemIndex = -1;
             Bind();
-        }
-        protected void dl1_updateCommand(object sender, DataListCommandEventArgs e)
+        }*/
+        /*protected void dl1_updateCommand(object sender, DataListCommandEventArgs e)
         {
             int index = e.Item.ItemIndex;
             int productID = Convert.ToInt32(((TextBox)cartList.Items[index].FindControl("txtempid")).Text);
@@ -88,6 +88,6 @@ namespace PE2_Group_Assg
                 Bind();
             }
 
-        }
+        }*/
     }
 }

@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace PE2_Group_Assg
 {
-    public partial class HomePageaspx : System.Web.UI.Page
+    public partial class HomePage : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {

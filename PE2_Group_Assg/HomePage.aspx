@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="HomePage.aspx.cs" Inherits="WebApplication1.WebForm1" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="HomePage.aspx.cs" Inherits="PE2_Group_Assg.HomePage" %>
 
 <!DOCTYPE html>
 
@@ -39,7 +39,7 @@
     </style>
 </head>
 <body>
-    <div class="container">
+    <div class="container-fluid" >
         <div class="bg-grey">
             <div class="row align-items-center">
                 <div class="col-md-4 text-center">
@@ -100,7 +100,7 @@
         </div>
         <div class="row bg-grey" style="margin: auto;">
             <div class="col-md-6 align-items-center" style="margin: auto;">
-                <img src="Resource/homepage.png" alt="Image" class="img-fluid custom-img">
+                <img src="Images/homepage.png" alt="Image" class="img-fluid custom-img">
             </div>
             <div class="col-md-6 bg-grey-text">
                 <div class="row align-items-center justify-content-center">
@@ -181,5 +181,6 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    
 </body>
 </html>
