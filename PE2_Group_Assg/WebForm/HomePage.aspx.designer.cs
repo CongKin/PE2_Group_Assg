@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace PE2_Group_Assg
+namespace PE2_Group_Assg.WebForm
 {
 
 

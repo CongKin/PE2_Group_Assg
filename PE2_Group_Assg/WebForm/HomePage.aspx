@@ -1,11 +1,11 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="HomePage.aspx.cs" Inherits="PE2_Group_Assg.HomePage" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="HomePage.aspx.cs" Inherits="PE2_Group_Assg.WebForm.HomePage" %>
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
-    <link href="CSS/font.css" rel="stylesheet" type="text/css" />
+    <link href="../CSS/font.css" rel="stylesheet" type="text/css" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link rel="preconnect" href="https://fonts.googleapis.com"/>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
@@ -90,7 +90,7 @@
     </style>
 </head>
 <body>
-    <div class="container-fluid" >
+   <div class="container-fluid" >
         <div class="bg-grey">
             <div class="row align-items-center custom-row">
                 <div class="col-md-4 text-center" >
@@ -112,15 +112,15 @@
                     <nav class="navbar navbar-expand">
                         <ul class="navbar-nav ml-auto">
                             <li class="nav-item d-flex align-items-center">
-                                <img class="userIcon" src="Images/user-icon.png" alt="" />
+                                <img class="userIcon" src="../Images/user-icon.png" alt="" />
                                 <a class="nav-link" href="#">Login</a>
                             </li>
                             <li class="nav-item d-flex align-items-center">
-                                <img class="cartIcon" src="Images/cart-icon.png" alt=""/>
+                                <img class="cartIcon" src="../Images/cart-icon.png" alt=""/>
                                 <a class="nav-link" href="#">Cart</a>
                             </li>
                             <li class="nav-item d-flex align-items-center">
-                                <img class="wishlistIcon" src="Images/wishlist-icon.png" alt=""/>
+                                <img class="wishlistIcon" src="../Images/wishlist-icon.png" alt=""/>
                                 <a class="nav-link" href="#">Wishlist</a>
                             </li>
                         </ul>
@@ -155,7 +155,7 @@
         </div>
         <div class="row bg-grey custom-row" style="margin: 0; padding:0; width: 100%; height: 500px;" >
             <div class="col-md-6 align-items-center" style="width:50%;margin: 0; padding:0;">
-                <img src="Images/homepage.png" alt="Image" class="img-fluid custom-img"/>
+                <img src="../Images/homepage.png" alt="Image" class="img-fluid custom-img"/>
             </div>
             <div class="col-md-6 bg-grey-text" style="width:50%; margin:0; padding: 0; max-width:100%;">
                 <div class="row align-items-center justify-content-center" style="width:100%; margin: 0;">
