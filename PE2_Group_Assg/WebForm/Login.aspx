@@ -4,7 +4,6 @@
         .textbox{
             border-radius:100%;
             font-size:12px;
-            padding:5px;
         }
     </style>
 
