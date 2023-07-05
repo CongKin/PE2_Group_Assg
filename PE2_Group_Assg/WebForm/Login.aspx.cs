@@ -13,10 +13,5 @@ namespace PE2_Group_Assg.WebForm
         {
 
         }
-
-        protected void sign_in_clicked(object sender, EventArgs e)
-        {
-
-        }
     }
 }

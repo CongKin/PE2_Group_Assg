@@ -17,6 +17,4 @@
         <a>Forget your password?</a><br />
         <a>Create account</a>
     </div>
-    
-
 </asp:Content>
