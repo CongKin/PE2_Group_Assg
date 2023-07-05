@@ -162,6 +162,7 @@
     <Content Include="Content\bootstrap-grid.css.map" />
     <Content Include="Fonts\artico-black.otf" />
     <Content Include="Fonts\articocond.otf" />
+    <Content Include="WebForm\HomePage.aspx" />
     <Content Include="WebForm\Login.aspx" />
     <Content Include="WebForm\WebForm2.aspx" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
@@ -263,6 +264,13 @@
     </Compile>
     <Compile Include="WebForm\Account.Master.designer.cs">
       <DependentUpon>Account.Master</DependentUpon>
+    </Compile>
+    <Compile Include="WebForm\HomePage.aspx.cs">
+      <DependentUpon>HomePage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm\HomePage.aspx.designer.cs">
+      <DependentUpon>HomePage.aspx</DependentUpon>
     </Compile>
     <Compile Include="WebForm\Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
