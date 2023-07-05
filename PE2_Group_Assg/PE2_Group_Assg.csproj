@@ -162,6 +162,7 @@
     <Content Include="Content\bootstrap-grid.css.map" />
     <Content Include="Fonts\artico-black.otf" />
     <Content Include="Fonts\articocond.otf" />
+    <Content Include="WebForm\Login.aspx" />
     <Content Include="WebForm\WebForm2.aspx" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -196,6 +197,7 @@
     <Content Include="Bundle.config" />
     <Content Include="Site.Mobile.Master" />
     <Content Include="WebForm\ProductImageHandler.ashx" />
+    <Content Include="WebForm\Account.Master" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
@@ -254,6 +256,20 @@
     </Compile>
     <Compile Include="ViewSwitcher.ascx.designer.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="WebForm\Account.Master.cs">
+      <DependentUpon>Account.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm\Account.Master.designer.cs">
+      <DependentUpon>Account.Master</DependentUpon>
+    </Compile>
+    <Compile Include="WebForm\Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm\Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="WebForm\ProductImageHandler.ashx.cs">
       <DependentUpon>ProductImageHandler.ashx</DependentUpon>
