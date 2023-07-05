@@ -5,23 +5,71 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
+    <link href="CSS/font.css" rel="stylesheet" type="text/css" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+    <link href="https://fonts.googleapis.com/css2?family=Istok+Web&display=swap" rel="stylesheet"/>
     <style>
+        body{
+            font-family: Arial;
+        }
+        .container-fluid{
+            padding: 0;
+            
+        }
         .bg-grey {
-            background-color: #f0f0f0;
-            padding-bottom: 20px; /* Adjust the spacing here */
+            background-color: #f1f1f1;
+            padding: 0; /* Adjust the spacing here */
+            width: 100%;
+            margin: 0;
+            border-bottom: 3px solid #E5E5E5;
+        }
+        h1{
+            font-family: "artico-black", Arial, sans-serif;
+        }
+        .form-control {
+            border-radius: 20px; 
+            width:300px;
+        }
+        .custom-button {
+          width: auto; /* Adjust the width to fit the content */
+          background: #21211F; 
+          border-color: #21211F;
+          color: #FFFFFF;
+        }
+        .custom-button:hover{
+            border-color: #21211F;
+            background: #FFFFFF;
+            color: #21211F;
+            font-weight: bold;
+        }
+        .nav-link{
+            color: #21211F;
+            font-weight: 500;
+        }
+        .nav-link:hover{
+            color: #21211F;
         }
         .bg-grey-text {
-            background-color: #f0f0f0;
+            background-color: #E2E2E2;
             display: flex;
             align-items: center;
             max-width: 540px;
             margin: 0;
             padding-bottom: 20px; /* Adjust the spacing here */
         }
+        .custom-row{
+            margin: 0;
+            padding:0;
+            width:100%;
+        }
         .navbar-light {
-            background-color: #f0f0f0;
-            margin-bottom: 20px; /* Adjust the spacing here */
+            background-color: #f1f1f1;
+            margin: 0; /* Adjust the spacing here */
+        }
+        .navbar-collapse{
+            margin-left: 60px;
         }
         .col-md-6.text-center {
             height: 100%;
@@ -30,8 +78,11 @@
             justify-content: center;
         }
         .custom-img {
-            max-width: 540px;
-            height: auto;
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            object-fit:cover;
         }
         .card {
             margin-bottom: 20px; /* Adjust the spacing here */
@@ -41,39 +92,43 @@
 <body>
     <div class="container-fluid" >
         <div class="bg-grey">
-            <div class="row align-items-center">
-                <div class="col-md-4 text-center">
+            <div class="row align-items-center custom-row">
+                <div class="col-md-4 text-center" >
                     <h1>Campus Trade</h1>
                 </div>
                 <div class="col-md-4">
                     <form class="form-inline" runat="server" id="searchForm">
                         <div class="input-group">
-                            <asp:TextBox ID="searchTextBox" runat="server" CssClass="form-control mr-sm-2 col-md-9" placeholder="Search" aria-label="Search"></asp:TextBox>
-                            <div class="input-group-append col-md-1"></div>
+                            <div class="input-group-append col-md-9">
+                                <asp:TextBox ID="searchTextBox" runat="server" CssClass="form-control mr-sm-2 col-md-12" placeholder="Search" aria-label="Search"></asp:TextBox>
+                            </div>
                             <div class="input-group-append col-md-2">
-                                <asp:Button ID="searchButton" runat="server" CssClass="btn btn-outline-success my-2 my-sm-0" Text="Search" />
+                                <asp:Button ID="searchButton" runat="server" CssClass="btn btn-outline-success my-2 my-sm-0 custom-button" Text="Search" />
                             </div>
                         </div>
                     </form>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-4 d-flex justify-content-end" >
                     <nav class="navbar navbar-expand">
                         <ul class="navbar-nav ml-auto">
-                            <li class="nav-item">
+                            <li class="nav-item d-flex align-items-center">
+                                <img class="userIcon" src="Images/user-icon.png" alt="" />
                                 <a class="nav-link" href="#">Login</a>
                             </li>
-                            <li class="nav-item">
+                            <li class="nav-item d-flex align-items-center">
+                                <img class="cartIcon" src="Images/cart-icon.png" alt=""/>
                                 <a class="nav-link" href="#">Cart</a>
                             </li>
-                            <li class="nav-item">
+                            <li class="nav-item d-flex align-items-center">
+                                <img class="wishlistIcon" src="Images/wishlist-icon.png" alt=""/>
                                 <a class="nav-link" href="#">Wishlist</a>
                             </li>
                         </ul>
                     </nav>
                 </div>
             </div>
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <div class="collapse navbar-collapse">
+            <nav class="navbar navbar-expand-lg navbar-light" >
+                <div class="collapse navbar-collapse ">
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item">
                             <a class="nav-link" href="#">Home</a>
@@ -98,13 +153,13 @@
                 </div>
             </nav>
         </div>
-        <div class="row bg-grey" style="margin: auto;">
-            <div class="col-md-6 align-items-center" style="margin: auto;">
-                <img src="Images/homepage.png" alt="Image" class="img-fluid custom-img">
+        <div class="row bg-grey custom-row" style="margin: 0; padding:0; width: 100%; height: 500px;" >
+            <div class="col-md-6 align-items-center" style="width:50%;margin: 0; padding:0;">
+                <img src="Images/homepage.png" alt="Image" class="img-fluid custom-img"/>
             </div>
-            <div class="col-md-6 bg-grey-text">
-                <div class="row align-items-center justify-content-center">
-                    <div class="col-md-10 text-center">
+            <div class="col-md-6 bg-grey-text" style="width:50%; margin:0; padding: 0; max-width:100%;">
+                <div class="row align-items-center justify-content-center" style="width:100%; margin: 0;">
+                    <div class="col-md-10 text-center" style="width:100%; margin: 0; padding: 0 100px 0 100px;">
                         <h1>Your text description here...</h1>
                         <p>Your text description here...</p>
                         <a href="#" class="btn btn-primary">Shop Now</a>
@@ -114,71 +169,6 @@
         </div>
     </div>
 
-    <div class="container" style="margin: auto;">
-        <div class="card" style="margin: auto; margin-top: 50px;">
-            <div class="card-header">
-                卡片标题
-            </div>
-            <div class="card-body">
-                <div class="row">
-                    <!-- 商品 1 -->
-                    <div class="col-sm-4">
-                        <div class="card">
-                            <img class="card-img-top" src="商品1的图片链接" alt="商品1">
-                            <div class="card-body">
-                                <p class="card-text">商品1的描述</p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- 商品 2 -->
-                    <div class="col-sm-4">
-                        <div class="card">
-                            <img class="card-img-top" src="商品2的图片链接" alt="商品2">
-                            <div class="card-body">
-                                <p class="card-text">商品2的描述</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-4">
-                        <div class="card">
-                            <img class="card-img-top" src="商品2的图片链接" alt="商品2">
-                            <div class="card-body">
-                                <p class="card-text">商品2的描述</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <!-- 商品 3 -->
-                    <div class="col-sm-4">
-                        <div class="card">
-                            <img class="card-img-top" src="商品3的图片链接" alt="商品3">
-                            <div class="card-body">
-                                <p class="card-text">商品3的描述</p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- 商品 4 -->
-                    <div class="col-sm-4">
-                        <div class="card">
-                            <img class="card-img-top" src="商品4的图片链接" alt="商品4">
-                            <div class="card-body">
-                                <p class="card-text">商品4的描述</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-4">
-                        <div class="card">
-                            <img class="card-img-top" src="商品4的图片链接" alt="商品4">
-                            <div class="card-body">
-                                <p class="card-text">商品4的描述</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
     

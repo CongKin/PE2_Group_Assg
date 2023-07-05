@@ -21,26 +21,26 @@ namespace PE2_Group_Assg
             }
         }
 
-        /*public void Bind()
-        {
-            SqlCommand cmd = new SqlCommand("select * from Employee", con);
-            SqlDataAdapter dataAdapter = new SqlDataAdapter(cmd);
-            DataSet dataSet = new DataSet();
-            dataAdapter.Fill(dataSet, "Employee");
-            cartList.DataSource = dataSet.Tables[0];
-            cartList.DataBind();
-        }
+            /*public void Bind()
+            {
+                SqlCommand cmd = new SqlCommand("select * from Employee", con);
+                SqlDataAdapter dataAdapter = new SqlDataAdapter(cmd);
+                DataSet dataSet = new DataSet();
+                dataAdapter.Fill(dataSet, "Employee");
+                cartList.DataSource = dataSet.Tables[0];
+                cartList.DataBind();
+            }
 
-        protected void dl1_EditCommand(object sender, DataListCommandEventArgs e)
-        {
-            cartList.EditItemIndex = e.Item.ItemIndex;
-            Bind();
-        }
-        protected void dl1_CancelCommand(object sender, DataListCommandEventArgs e)
-        {
-            cartList.EditItemIndex = -1;
-            Bind();
-        }*/
+            protected void dl1_EditCommand(object sender, DataListCommandEventArgs e)
+            {
+                cartList.EditItemIndex = e.Item.ItemIndex;
+                Bind();
+            }
+            protected void dl1_CancelCommand(object sender, DataListCommandEventArgs e)
+            {
+                cartList.EditItemIndex = -1;
+                Bind();
+            }*/
         /*protected void dl1_updateCommand(object sender, DataListCommandEventArgs e)
         {
             int index = e.Item.ItemIndex;

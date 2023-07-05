@@ -10,15 +10,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
     <link href="https://fonts.googleapis.com/css2?family=Istok+Web&display=swap" rel="stylesheet"/>
     <style>
-        
-        @font-face {
-            font-family: 'artico-black';
-            src: url('Fonts/artico-black.otf') format('truetype');
-        }
-        @font-face {
-            font-family: 'articocond';
-            src: url('Fonts/articocond.otf') format('truetype');
-        }
         body{
             font-family: Arial;
         }
