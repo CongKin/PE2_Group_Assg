@@ -11,7 +11,7 @@ namespace PE2_Group_Assg.WebForm
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            image1.ImageUrl = "ProductImageHandler.ashx?product_id=1";
         }
     }
 }

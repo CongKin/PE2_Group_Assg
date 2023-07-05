@@ -192,6 +192,7 @@
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
     <Content Include="Site.Mobile.Master" />
+    <Content Include="WebForm\ProductImageHandler.ashx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
@@ -217,6 +218,7 @@
     <Compile Include="Contact.aspx.designer.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Database\Database.cs" />
     <Compile Include="Database\Model\model_user.cs" />
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
@@ -256,6 +258,9 @@
     </Compile>
     <Compile Include="ViewSwitcher.ascx.designer.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="WebForm\ProductImageHandler.ashx.cs">
+      <DependentUpon>ProductImageHandler.ashx</DependentUpon>
     </Compile>
     <Compile Include="WebForm\WebForm2.aspx.cs">
       <DependentUpon>WebForm2.aspx</DependentUpon>
