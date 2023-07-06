@@ -128,7 +128,7 @@
             </table>
 
             <div class =" content">
-                <asp:DataList ID="cartList" CssClass="dataList" runat="server" RepeatColumns="3" RepeatDirection="Horizontal"> 
+                <asp:DataList ID="cartList" CssClass="dataList" runat="server" RepeatColumns="1" RepeatDirection="Horizontal"> 
                     <!--OnEditCommand="dl1_EditCommand"      
                     OnCancelCommand="dl1_CancelCommand"      
                     OnUpdateCommand="dl1_updateCommand"      

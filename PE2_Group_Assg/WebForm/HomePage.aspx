@@ -90,6 +90,7 @@
     </style>
 </head>
 <body>
+   <form runat="server" id="form1">
    <div class="container-fluid" >
         <div class="bg-grey">
             <div class="row align-items-center custom-row">
@@ -97,7 +98,7 @@
                     <h1>Campus Trade</h1>
                 </div>
                 <div class="col-md-4">
-                    <form class="form-inline" runat="server" id="searchForm">
+                    
                         <div class="input-group">
                             <div class="input-group-append col-md-9">
                                 <asp:TextBox ID="searchTextBox" runat="server" CssClass="form-control mr-sm-2 col-md-12" placeholder="Search" aria-label="Search"></asp:TextBox>
@@ -106,7 +107,7 @@
                                 <asp:Button ID="searchButton" runat="server" CssClass="btn btn-outline-success my-2 my-sm-0 custom-button" Text="Search" />
                             </div>
                         </div>
-                    </form>
+                    
                 </div>
                 <div class="col-md-4 d-flex justify-content-end" >
                     <nav class="navbar navbar-expand">
@@ -168,7 +169,7 @@
             </div>
         </div>
     </div>
-
+</form>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
     
