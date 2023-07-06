@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace PE2_Group_Assg.WebForm
 {
-    public partial class ResetPwd : System.Web.UI.Page
+    public partial class ResetPwd1 : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {

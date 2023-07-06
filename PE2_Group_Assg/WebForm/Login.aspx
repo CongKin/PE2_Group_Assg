@@ -1,9 +1,15 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/WebForm/Account.Master" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="PE2_Group_Assg.WebForm.Login" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="PE2_Group_Assg.WebForm.Login1" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
     <title>Login</title>
-</asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="container">
+    <link href="../CSS/Account.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div class="container">
         <h1>Login</h1>
         <asp:Label ID="test" runat="server"></asp:Label>
         <!-- login -->
@@ -43,4 +49,6 @@
             <asp:HyperLink ID="createAccount" runat="server" NavigateUrl="~/WebForm/CreateAcc.aspx" CssClass="link">Create account</asp:HyperLink>
         </div>
     </div>
-</asp:Content>
+    </form>
+</body>
+</html>

@@ -122,6 +122,7 @@
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="CSS\Account.css" />
     <Content Include="CSS\font.css" />
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
@@ -169,6 +170,8 @@
     <Content Include="WebForm\CreateAcc.aspx" />
     <Content Include="WebForm\HomePage.aspx" />
     <Content Include="WebForm\Login.aspx" />
+    <Content Include="WebForm\NewFolder1\Reset.aspx" />
+    <Content Include="WebForm\NewFolder1\ResetPwd.aspx" />
     <Content Include="WebForm\Reset.aspx" />
     <Content Include="WebForm\ResetPwd.aspx" />
     <Content Include="WebForm\WebForm2.aspx" />
@@ -323,6 +326,20 @@
     </Compile>
     <Compile Include="WebForm\ProductImageHandler.ashx.cs">
       <DependentUpon>ProductImageHandler.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="WebForm\NewFolder1\Reset.aspx.cs">
+      <DependentUpon>Reset.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm\NewFolder1\Reset.aspx.designer.cs">
+      <DependentUpon>Reset.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebForm\NewFolder1\ResetPwd.aspx.cs">
+      <DependentUpon>ResetPwd.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm\NewFolder1\ResetPwd.aspx.designer.cs">
+      <DependentUpon>ResetPwd.aspx</DependentUpon>
     </Compile>
     <Compile Include="WebForm\Reset.aspx.cs">
       <DependentUpon>Reset.aspx</DependentUpon>
