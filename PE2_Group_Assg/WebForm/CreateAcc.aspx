@@ -1,25 +1,21 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="CreateAcc.aspx.cs" Inherits="PE2_Group_Assg.LoginPages.CreateAcc" %>
-
-<!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/WebForm/Account.Master" AutoEventWireup="true" CodeBehind="CreateAcc.aspx.cs" Inherits="PE2_Group_Assg.WebForm.CreateAcc" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <title>Create account</title>
     <style>
         .gender {
-            width: 630px;
+            width: 650px !important;
         }
         .name {
-            width: 280px;
+            width: 267px !important;
         }
         .fname {
-            margin-right: 10px;
+            margin-right: 10px !important;
         }
+
     </style>
-</head>
-<body>
-    <form id="form1" runat="server">
-        <h1>Create Account</h1>
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <h1>Create Account</h1>
         <div class="form-group">
             <div style="display: flex;">
                 <asp:TextBox ID="firstName" runat="server" CssClass="input name fname" placeholder="First Name"></asp:TextBox>
@@ -28,7 +24,6 @@
         </div>
         <div class="form-group">
             <asp:DropDownList ID="gender" runat="server" CssClass="input gender">
-                <asp:ListItem Text="Gender" Value="" Selected="True"></asp:ListItem>
                 <asp:ListItem Text="Female" Value="Female"></asp:ListItem>
                 <asp:ListItem Text="Male" Value="Male"></asp:ListItem>
             </asp:DropDownList>
@@ -46,7 +41,7 @@
             <asp:Button ID="btnCreate" runat="server" Text="Create" CssClass="button"/>
         </div>
         <div class="form-group">
-            <asp:HyperLink ID="loginLink" runat="server" NavigateUrl="~/LoginPages/Login.aspx" CssClass="link">Login</asp:HyperLink>
+            <asp:HyperLink ID="loginLink" runat="server" NavigateUrl="~/WebForm/Login.aspx" CssClass="link">Login</asp:HyperLink>
         </div>
         <div>
             <p class="prompt">By signing up, I agree to the Canpus Trade's Terms of Service</p>
@@ -54,6 +49,4 @@
         <div>
             <p class="prompt">Privacy Policy and Refund Policy</p>
         </div>
-    </form>
-</body>
-</html>
+</asp:Content>

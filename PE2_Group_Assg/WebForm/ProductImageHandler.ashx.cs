@@ -33,6 +33,8 @@ namespace PE2_Group_Assg.WebForm
                 context.Response.ContentType = "image.jpg";
                 context.Response.End();
 
+                connection.Close();
+
             }catch (Exception ex)
             {
                 throw ex;

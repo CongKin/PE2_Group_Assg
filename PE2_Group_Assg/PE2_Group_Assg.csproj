@@ -166,9 +166,11 @@
     <Content Include="Content\bootstrap-grid.css.map" />
     <Content Include="Fonts\artico-black.otf" />
     <Content Include="Fonts\articocond.otf" />
+    <Content Include="WebForm\CreateAcc.aspx" />
     <Content Include="WebForm\HomePage.aspx" />
     <Content Include="WebForm\Login.aspx" />
-    <Content Include="WebForm\ResetPassword.aspx" />
+    <Content Include="WebForm\Reset.aspx" />
+    <Content Include="WebForm\ResetPwd.aspx" />
     <Content Include="WebForm\WebForm2.aspx" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -298,6 +300,13 @@
     <Compile Include="WebForm\Account.Master.designer.cs">
       <DependentUpon>Account.Master</DependentUpon>
     </Compile>
+    <Compile Include="WebForm\CreateAcc.aspx.cs">
+      <DependentUpon>CreateAcc.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm\CreateAcc.aspx.designer.cs">
+      <DependentUpon>CreateAcc.aspx</DependentUpon>
+    </Compile>
     <Compile Include="WebForm\HomePage.aspx.cs">
       <DependentUpon>HomePage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -315,12 +324,19 @@
     <Compile Include="WebForm\ProductImageHandler.ashx.cs">
       <DependentUpon>ProductImageHandler.ashx</DependentUpon>
     </Compile>
-    <Compile Include="WebForm\ResetPassword.aspx.cs">
-      <DependentUpon>ResetPassword.aspx</DependentUpon>
+    <Compile Include="WebForm\Reset.aspx.cs">
+      <DependentUpon>Reset.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="WebForm\ResetPassword.aspx.designer.cs">
-      <DependentUpon>ResetPassword.aspx</DependentUpon>
+    <Compile Include="WebForm\Reset.aspx.designer.cs">
+      <DependentUpon>Reset.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebForm\ResetPwd.aspx.cs">
+      <DependentUpon>ResetPwd.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm\ResetPwd.aspx.designer.cs">
+      <DependentUpon>ResetPwd.aspx</DependentUpon>
     </Compile>
     <Compile Include="WebForm\WebForm2.aspx.cs">
       <DependentUpon>WebForm2.aspx</DependentUpon>

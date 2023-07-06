@@ -1,13 +1,9 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Reset.aspx.cs" Inherits="PE2_Group_Assg.LoginPages.Reset" %>
-
-<!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/WebForm/Account.Master" AutoEventWireup="true" CodeBehind="Reset.aspx.cs" Inherits="PE2_Group_Assg.WebForm.Reset" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <title>Reset your password</title>
     <style>
         .email {
-            width: 520px;
+            width: 520px !important;
         }
         .send-button {
             background-color: gray;
@@ -29,10 +25,9 @@
             background-color: black;
         }
     </style>
-</head>
-<body>
-    <form id="form1" runat="server">
-        <h1>Reset your password</h1>
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <h1>Reset your password</h1>
         <div class="form-group">
             <asp:Label ID="prompt" runat="server" Text="We will send you a 6 digit verification code to your email to reset your password" CssClass="prompt"></asp:Label>
         </div>
@@ -49,8 +44,6 @@
             <asp:Button ID="btnSubmit" runat="server" Text="Submit" CssClass="button"/>
         </div>
         <div class="form-group">
-            <asp:HyperLink ID="cancel" runat="server" NavigateUrl="~/LoginPages/Login.aspx" CssClass="link">Cancel</asp:HyperLink>
+            <asp:HyperLink ID="cancel" runat="server" NavigateUrl="~/WebForm/Login.aspx" CssClass="link">Cancel</asp:HyperLink>
         </div>
-    </form>
-</body>
-</html>
+</asp:Content>
