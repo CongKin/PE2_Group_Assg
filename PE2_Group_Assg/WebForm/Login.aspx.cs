@@ -54,7 +54,8 @@ namespace PE2_Group_Assg.WebForm
                 if (reader2.Read())
                 {
                     user_id = (int)reader2[0];
-                    Session["user_id"] = user_id;
+                    Session["user_id"] = Database.Database.Base64Encode(user_id.ToString());
+                    error_password.Text = Database.Database.Base64Encode(user_id.ToString());
                     Response.Redirect("HomePage.aspx");
                 }
                 else
