@@ -30,41 +30,57 @@ namespace PE2_Group_Assg.WebForm
 
                 // get salt
                 SqlDataReader reader = cmd.ExecuteReader();
+
                 if (reader.Read())
                 {
                     salt = (string)reader[0];
-                    error_email.Text = "";
                     reader.Close();
                 }
                 else
                 {
-                    error_email.Text = "The email is not registered";
-                    //Response.Write("<script>alert('The email is not registered');</script>");
+                    Response.Write("<script>alert('The email is not registered');</script>");
                     reader.Close();
+                    connection.Close();
                     return;
                 }
 
                 // get hash
                 string passwordText = Database.Database.HashString(password.Text + salt);
 
-                SqlCommand cmd2 = new SqlCommand("select user_id from ACCOUNT where email = @email and password = @password", connection);
+                SqlCommand cmd2 = new SqlCommand("select COUNT(*) from ACCOUNT where email = @email and password = @password", connection);
                 cmd2.Parameters.AddWithValue("@email", emailText);
                 cmd2.Parameters.AddWithValue("@password", passwordText);
 
                 SqlDataReader reader2 = cmd2.ExecuteReader();
-                if (reader2.Read())
+
+                if (!reader2.Read())
                 {
-                    user_id = (int)reader2[0];
+                    Response.Write("<script>alert('The password is incorrect');</script>");
+                    reader.Close();
+                    connection.Close();
+                    return;
+                }
+
+                reader2.Close();
+
+                SqlCommand cmd3 = new SqlCommand("select user_id from [USER] where email = @email", connection);
+                cmd3.Parameters.AddWithValue("@email", emailText);
+
+                SqlDataReader reader3 = cmd3.ExecuteReader();
+                if (reader3.Read())
+                {
+                    user_id = (int)reader3[0];
                     Session["user_id"] = Database.Database.Base64Encode(user_id.ToString());
-                    error_password.Text = Database.Database.Base64Encode(user_id.ToString());
+                    reader3.Close();
+                    connection.Close();
                     Response.Redirect("HomePage.aspx");
                 }
                 else
                 {
-                    error_password.Text = "The password is incorrect";
-                    return;
+                    Response.Write("<script>alert('Error in retrieve user information');</script>");
+                    reader3.Close();
+                    connection.Close();
                 }
-
             }
         }
     }

@@ -42,6 +42,24 @@ namespace PE2_Group_Assg.WebForm
         protected global::System.Web.UI.WebControls.TextBox lastName;
 
         /// <summary>
+        /// RVD_fname control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RVD_fname;
+
+        /// <summary>
+        /// RVD_lname control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RVD_lname;
+
+        /// <summary>
         /// gender control.
         /// </summary>
         /// <remarks>
@@ -49,6 +67,15 @@ namespace PE2_Group_Assg.WebForm
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList gender;
+
+        /// <summary>
+        /// RVD_gender control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RVD_gender;
 
         /// <summary>
         /// dob control.
@@ -60,6 +87,15 @@ namespace PE2_Group_Assg.WebForm
         protected global::System.Web.UI.WebControls.TextBox dob;
 
         /// <summary>
+        /// RVD_dob control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RVD_dob;
+
+        /// <summary>
         /// email control.
         /// </summary>
         /// <remarks>
@@ -69,6 +105,33 @@ namespace PE2_Group_Assg.WebForm
         protected global::System.Web.UI.WebControls.TextBox email;
 
         /// <summary>
+        /// RVD_email control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RVD_email;
+
+        /// <summary>
+        /// max_email control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator max_email;
+
+        /// <summary>
+        /// min_email control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator min_email;
+
+        /// <summary>
         /// password control.
         /// </summary>
         /// <remarks>
@@ -76,6 +139,33 @@ namespace PE2_Group_Assg.WebForm
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox password;
+
+        /// <summary>
+        /// RVD_password control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RVD_password;
+
+        /// <summary>
+        /// max_password control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator max_password;
+
+        /// <summary>
+        /// min_password control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator min_password;
 
         /// <summary>
         /// btnCreate control.

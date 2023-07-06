@@ -22,7 +22,6 @@
                 ErrorMessage="*Maximum 45 characters allowed" CssClass="error"></asp:RegularExpressionValidator>
             <asp:RegularExpressionValidator Display="Dynamic" ControlToValidate="email" ID="min_email" ValidationExpression="^[\s\S]{5,}$" runat="server" 
                 ErrorMessage="*Minimum 5 characters allowed" CssClass="error"></asp:RegularExpressionValidator>
-            <asp:Label ID="error_email" runat="server" CssClass="error"></asp:Label>
         
         <!-- password-->
         <div class="form-group">
@@ -34,7 +33,6 @@
                 ErrorMessage="*Maximum 20 characters allowed" CssClass="error"></asp:RegularExpressionValidator>
             <asp:RegularExpressionValidator Display="Dynamic" ControlToValidate="password" ID="min_password" ValidationExpression="^[\s\S]{4,}$" runat="server" 
                 ErrorMessage="*Minimum 4 characters allowed" CssClass="error"></asp:RegularExpressionValidator>
-            <asp:Label ID="error_password" runat="server" CssClass="error"></asp:Label>
        
         <!-- submit button -->
         <div class="form-group">
