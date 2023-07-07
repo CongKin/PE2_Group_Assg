@@ -160,12 +160,15 @@
     <Content Include="Content\Site.css" />
     <Content Include="CSS\Account.css" />
     <Content Include="CSS\font.css" />
+    <Content Include="CSS\Transaction.css" />
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="Images\cod-icon.png" />
     <Content Include="Images\homepage.png" />
     <Content Include="Images\cart-icon.png" />
     <Content Include="Images\search-icon.png" />
+    <Content Include="Images\tng-icon.png" />
     <Content Include="Images\wishlist-icon.png" />
     <Content Include="Images\user-icon.png" />
     <Content Include="Images\product-tag.jpg" />

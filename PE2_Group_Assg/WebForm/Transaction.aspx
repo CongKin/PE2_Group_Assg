@@ -5,95 +5,87 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>Transaction</title>
-    <style type="text/css">
-        body{
-            background-color: #D9D9D9;
-        }
-
-        .trans{
-            display:flex;
-        }
-
-        .deli{
-            width: 60%;
-        }
-
-        .deli-info{
-            display: flex;
-        }
-
-        .info{
-            margin-left:10px;
-            margin-right:10px;
-            width: auto;
-
-        }
-
-    </style>
+    <link href="../CSS/Transaction.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
     <form id="form1" runat="server">
         <div class="trans">
             <!-- delivery information -->
-            <div class ="deli">
+            <div class ="deli background">
                 <h1>Delivery Information</h1>
                 <div class="deli-info">
                     <!-- personal information -->
                     <div class ="info">
                         <h2>Full Name</h2>
-                        <asp:TextBox ID="name" runat="server" placeholder="Please enter your name"></asp:TextBox>
+                        <asp:TextBox ID="name" runat="server" placeholder="Please enter your name" CssClass="textbox"></asp:TextBox>
                         <h2>Phone Number</h2>
-                        <asp:TextBox ID="phone" runat="server" placeholder="Please enter your phone number"></asp:TextBox>
+                        <asp:TextBox ID="phone" runat="server" placeholder="Please enter your phone number" CssClass="textbox"></asp:TextBox>
                     </div>
                     <!-- address information -->
                     <div class="info">
                         <h2>Building</h2>
-                        <asp:DropDownList ID="building" runat="server"></asp:DropDownList>
+                        <asp:DropDownList ID="building" runat="server" CssClass="textbox"></asp:DropDownList>
                         <h2>Room Number</h2>
-                        <asp:TextBox ID="room" runat="server" placeholder="Please enter your room number. eg: A401"></asp:TextBox>
+                        <asp:TextBox ID="room" runat="server" placeholder="Please enter your room number. eg: A401" CssClass="textbox"></asp:TextBox>
                         <h2>Message</h2>
-                        <asp:TextBox ID="message" runat="server" placeholder="Leave your message"></asp:TextBox>
+                        <asp:TextBox ID="message" runat="server" placeholder="Leave your message" CssClass="textbox"></asp:TextBox>
                     </div>
                </div>
             </div>
 
             <!-- payment -->
-            <div>
+            <div class="payment background" >
                 <!-- payment method -->
                 <div>
-                    <h1>Select Payment Method</h1>
-                    <asp:DataList ID="paymentlist" runat="server"></asp:DataList>
+                    <h2>Select Payment Method</h2>
+                    <!-- cod -->
+                    <div class="pay-method">
+                        <asp:RadioButton ID="cod" runat="server" GroupName="payment" />
+                        <img src="../Images/cod-icon.png" />
+                        <span>Cash On Delivery</span>
+                    </div>
+                    <!-- tng -->
+                    <div class="pay-method">
+                        <asp:RadioButton ID="tng" runat="server" GroupName="payment" />
+                        <img src="../Images/tng-icon.png" />
+                        <span>Touch 'n Go eWallet</span>
+                    </div>
                 </div>
                 <!-- summary -->
-                <div>
+                <div class ="order">
+                    <h2>Order Summary</h2>
                     <!-- detail -->
-                    <table>
+                    <table class ="summary">
                         <tr>
-                            <td>
-                                <p>Subtotal</p>
-                                <asp:Label ID="item_count" runat="server" Text="(0 item)"></asp:Label>
+                            <td style="width:70%; height:40px;" >
+                                <div  class="summary-title">
+                                    <span>Subtotal</span>
+                                    <asp:Label ID="item_count" runat="server" Text="(0 item)"></asp:Label>
+                                </div>
                             </td>
-                            <td>
-                                <asp:Label ID="item_price" runat="server" Text="RM0.00"></asp:Label>
+                            <td style="width:30%; height:40px; text-align: right;">
+                                <asp:Label ID="item_price" runat="server" Text="RM0.00" CssClass="summary-price"></asp:Label>
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                <p>Shipping Fee</p>
+                                <span class="summary-title">Shipping Fee</span>
                             </td>
-                            <td>
-                                <asp:Label ID="shiping_fee" runat="server" Text="RM0.00"></asp:Label>
+                            <td style=" text-align: right;">
+                                <asp:Label ID="shiping_fee" runat="server" Text="RM0.00" CssClass="summary-price"></asp:Label>
                             </td>
                         </tr>
                     </table>
                     <!-- total -->
-                    <div>
-                        <span>Total</span>
-                        <asp:Label ID="total" runat="server"></asp:Label>
+                    <div class="total">
+                        <span class="total-title">Total</span>
+                        <asp:Label ID="total" runat="server" Text="RM0.00" CssClass="total-price"></asp:Label>
+                    </div>
+                    <!-- button -->
+                    <div class="submit-container">
+                        <asp:Button ID="submit" runat="server" Text="PLACE ORDER" CssClass="submit"/>
                     </div>
                 </div>
-                <!-- button -->
-                <asp:Button ID="submit" runat="server" Text="PLACE ORDER" />
             </div>
         </div>
     </form>

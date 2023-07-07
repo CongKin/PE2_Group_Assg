@@ -69,13 +69,22 @@ namespace PE2_Group_Assg.WebForm
         protected global::System.Web.UI.WebControls.TextBox message;
 
         /// <summary>
-        /// paymentlist control.
+        /// cod control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DataList paymentlist;
+        protected global::System.Web.UI.WebControls.RadioButton cod;
+
+        /// <summary>
+        /// tng control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButton tng;
 
         /// <summary>
         /// item_count control.
