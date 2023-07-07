@@ -73,7 +73,7 @@
 
             <!-- link -->
             <div class="form-group">
-                <asp:HyperLink ID="loginLink" runat="server" NavigateUrl="~/WebForm/Login.aspx" CssClass="link">Login</asp:HyperLink>
+                <asp:HyperLink ID="loginLink" runat="server" NavigateUrl="javascript: history.go(-1)" CssClass="link">Login</asp:HyperLink>
             </div>
 
             <!-- other -->

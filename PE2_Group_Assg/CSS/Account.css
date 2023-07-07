@@ -74,15 +74,15 @@ h1 {
 }
 
 .gender {
-    width: 650px !important;
+    width: 650px;
 }
 
 .name {
-    width: 267px !important;
+    width: 267px;
 }
 
 .fname {
-    margin-right: 10px !important;
+    margin-right: 10px;
 }
 
 .prompt-end {

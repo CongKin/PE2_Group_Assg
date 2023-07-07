@@ -118,7 +118,7 @@ namespace PE2_Group_Assg.WebForm
         private static Random random = new Random();
         private const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
 
-        public static string GenerateRandomString(int length)
+        private static string GenerateRandomString(int length)
         {
             return new string(Enumerable.Repeat(chars, length)
                 .Select(s => s[random.Next(s.Length)]).ToArray());
