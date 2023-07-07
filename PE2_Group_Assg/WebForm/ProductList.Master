@@ -107,13 +107,13 @@
         .catList td:hover{
             background-color: #000000;            
         }
-        .catList a{
+        .catList .catLink{
             width: 100%;
             height: 100%;
             text-decoration: none;
             color: #000000;
         }
-        .catList a:hover{
+        .catList .catLink:hover{
             background-color: #000000;
             color: #FFFFFF;
         }
@@ -203,9 +203,9 @@
         </div>
         <div class="productListContainer">
             <div class="catColumn">
-                <asp:DataList ID="catList" CssClass="catList" runat="server" RepeatColumns="1" RepeatDirection="Horizontal">
+                <asp:DataList ID="catList" CssClass="catList" runat="server" RepeatColumns="1" RepeatDirection="Horizontal" OnItemCommand="CategoryList_ItemCommand">
                     <ItemTemplate>
-                        <a href="ProductPage.aspx"><%# Eval("CategoryName") %></a> 
+                        <asp:LinkButton ID="catLink" runat="server" Text="<%# Eval("name") %>" CommandArgument="<%# Eval("categoty_id") %>" CommandName="SelectCategory"></asp:LinkButton>
                     </ItemTemplate>
                 </asp:DataList>
             </div>
