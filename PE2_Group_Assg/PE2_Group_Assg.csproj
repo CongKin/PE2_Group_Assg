@@ -211,6 +211,7 @@
     <Content Include="WebForm\ProductListPage.aspx" />
     <Content Include="WebForm\Reset.aspx" />
     <Content Include="WebForm\ResetPwd.aspx" />
+    <Content Include="WebForm\Transaction.aspx" />
     <Content Include="WebForm\WebForm2.aspx" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -400,6 +401,13 @@
     </Compile>
     <Compile Include="WebForm\ResetPwd.aspx.designer.cs">
       <DependentUpon>ResetPwd.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebForm\Transaction.aspx.cs">
+      <DependentUpon>Transaction.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm\Transaction.aspx.designer.cs">
+      <DependentUpon>Transaction.aspx</DependentUpon>
     </Compile>
     <Compile Include="WebForm\WebForm2.aspx.cs">
       <DependentUpon>WebForm2.aspx</DependentUpon>
