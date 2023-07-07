@@ -17,6 +17,8 @@ namespace PE2_Group_Assg.WebForm
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            Session["user_id"] = Database.Database.Base64Encode("6");
+
             //  building drop down lsit
             SqlConnection connection = new SqlConnection(Database.Database.getConnectionString());
             connection.Open();
@@ -73,6 +75,7 @@ namespace PE2_Group_Assg.WebForm
             int user_id = int.Parse(Database.Database.Base64Decode(Session["user_id"].ToString()));
 
             int cart_amount = 0;
+            string email = "";
 
             if(cod.Checked == true)
             {
@@ -159,6 +162,22 @@ namespace PE2_Group_Assg.WebForm
                 return;
             }
 
+            // get user Email
+
+            SqlCommand getEmail = new SqlCommand("select email from [USER] where user_id = @user", connection);
+            getEmail.Parameters.AddWithValue("@user", user_id);
+
+            SqlDataReader emailReader = getEmail.ExecuteReader();
+            if(emailReader.Read())
+            {
+                email = (string)emailReader[0];
+            }
+            emailReader.Close();
+
+            Mail.Mail.SendTransactionDone(email, transaction_id);
+
+
+            /*
             // clear the user cart
             SqlCommand cmd3 = new SqlCommand("delete from CART where user_id = @user", connection);
             cmd3.Parameters.AddWithValue("@user", user_id);
@@ -176,7 +195,7 @@ namespace PE2_Group_Assg.WebForm
                 connection.Close();
                 Response.Redirect("ProductListPage.aspx");
             }
-
+            */
             
         }
     }
