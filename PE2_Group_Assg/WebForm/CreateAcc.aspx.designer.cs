@@ -51,6 +51,24 @@ namespace PE2_Group_Assg.WebForm
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RVD_fname;
 
         /// <summary>
+        /// max_fname control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator max_fname;
+
+        /// <summary>
+        /// min_fname control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator min_fname;
+
+        /// <summary>
         /// RVD_lname control.
         /// </summary>
         /// <remarks>
@@ -58,6 +76,24 @@ namespace PE2_Group_Assg.WebForm
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RVD_lname;
+
+        /// <summary>
+        /// max_lname control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator max_lname;
+
+        /// <summary>
+        /// min_lname control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator min_lname;
 
         /// <summary>
         /// gender control.

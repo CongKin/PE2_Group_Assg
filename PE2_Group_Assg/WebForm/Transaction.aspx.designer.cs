@@ -33,6 +33,33 @@ namespace PE2_Group_Assg.WebForm
         protected global::System.Web.UI.WebControls.TextBox name;
 
         /// <summary>
+        /// RVD_fname control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RVD_fname;
+
+        /// <summary>
+        /// max_name control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator max_name;
+
+        /// <summary>
+        /// min_name control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator min_name;
+
+        /// <summary>
         /// phone control.
         /// </summary>
         /// <remarks>
@@ -40,6 +67,33 @@ namespace PE2_Group_Assg.WebForm
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox phone;
+
+        /// <summary>
+        /// RVD_phone control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RVD_phone;
+
+        /// <summary>
+        /// max_phone control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator max_phone;
+
+        /// <summary>
+        /// min_phone control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator min_phone;
 
         /// <summary>
         /// building control.
@@ -60,6 +114,33 @@ namespace PE2_Group_Assg.WebForm
         protected global::System.Web.UI.WebControls.TextBox room;
 
         /// <summary>
+        /// RVD_room control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RVD_room;
+
+        /// <summary>
+        /// max_room control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator max_room;
+
+        /// <summary>
+        /// min_room control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator min_room;
+
+        /// <summary>
         /// message control.
         /// </summary>
         /// <remarks>
@@ -67,6 +148,15 @@ namespace PE2_Group_Assg.WebForm
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox message;
+
+        /// <summary>
+        /// max_message control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator max_message;
 
         /// <summary>
         /// cod control.
