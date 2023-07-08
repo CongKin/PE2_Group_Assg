@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Ajax.Utilities;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Common;
@@ -23,32 +24,40 @@ namespace PE2_Group_Assg.WebForm
                 {
                     string categoryId = Request.QueryString["categoryId"];
 
-                    SqlCommand cmd = new SqlCommand("SELECT name FROM CATEGORY WHERE category_id = @CategoryId", connection);
-                    cmd.Parameters.AddWithValue("@CategoryId", categoryId);
-
-                    SqlDataAdapter dataAdapter = new SqlDataAdapter(cmd);
-                    DataTable catTable = new DataTable();
-                    dataAdapter.Fill(catTable);
-
-                    if (catTable.Rows.Count > 0)
+                    if (categoryId.Equals("0"))
                     {
-                        string categoryName = catTable.Rows[0]["name"].ToString();
-                        catTitle.Text = categoryName;
+                        Bind();
                     }
+                    else
+                    {
 
-                    
+                        SqlCommand cmd = new SqlCommand("SELECT name FROM CATEGORY WHERE category_id = @CategoryId", connection);
+                        cmd.Parameters.AddWithValue("@CategoryId", categoryId);
+
+                        SqlDataAdapter dataAdapter = new SqlDataAdapter(cmd);
+                        DataTable catTable = new DataTable();
+                        dataAdapter.Fill(catTable);
+
+                        if (catTable.Rows.Count > 0)
+                        {
+                            string categoryName = catTable.Rows[0]["name"].ToString();
+                            catTitle.Text = categoryName;
+                        }
+
+                        GetProductWithCategory(categoryId);
+                    }
+                }
+                else
+                {
+                    Bind();
                 }
 
                 //Bind();
-                DataTable pTable = GetProducts();
+                /*DataTable pTable = GetProducts();
 
                 // Set the data source and bind it to the DataList
                 productList.DataSource = pTable;
-                productList.DataBind();
-            }
-            else
-            {
-                Bind();
+                productList.DataBind();*/
             }
         }
 
@@ -58,11 +67,18 @@ namespace PE2_Group_Assg.WebForm
             SqlDataAdapter dataAdapter = new SqlDataAdapter(cmd);
             DataSet dataSet = new DataSet();
             dataAdapter.Fill(dataSet, "PRODUCT");
-            productList.DataSource = dataSet.Tables[0];
-            productList.DataBind();
+            if(productList.DataSource == dataSet.Tables[0])
+            {
+                return;
+            }
+            else
+            {
+                productList.DataSource = dataSet.Tables[0];
+                productList.DataBind();
+            }
         }
 
-        private void GetProductWithCartegory(string categoryId)
+        private void GetProductWithCategory(string categoryId)
         {
             SqlCommand cmd = new SqlCommand("SELECT * FROM PRODUCT WHERE category_id = @CategoryId", connection);
             cmd.Parameters.AddWithValue("@CategoryId", categoryId);
@@ -103,27 +119,19 @@ namespace PE2_Group_Assg.WebForm
         {
             modalPopup.Hide();
         }*/
-        protected void button_ClickMinus(object sender, EventArgs e)
-        {
-            
-        }
+        
 
-        /*protected void button_ClickAdd(object sender, EventArgs e)
-        {
-
-        }
-
-        protected void openModalButton_Click(object sender, EventArgs e)
+        /*protected void openModalButton_Click(object sender, EventArgs e)
         {
             modalPopup.Show();
-        }
-*/
+        }*/
+
         /*protected void productList_ItemCommand(object source, DataListCommandEventArgs e)
         {
             if (e.CommandName == "OpenModal")
             {
                 // Retrieve the relevant data for the selected item
-                //string itemID = e.CommandArgument.ToString();
+                //string productId= e.CommandArgument.ToString();
                 // Perform data retrieval or processing based on the itemID
 
                 // Set the data in the modal panel
@@ -133,7 +141,6 @@ namespace PE2_Group_Assg.WebForm
                 ScriptManager.RegisterStartupScript(this, GetType(), "ShowModal", "showModal();", true);
             }
         }*/
-
 
     }
 }

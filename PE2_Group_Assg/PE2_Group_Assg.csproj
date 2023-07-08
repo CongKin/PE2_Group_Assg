@@ -218,6 +218,7 @@
     <Content Include="WebForm\ResetPwd.aspx" />
     <Content Include="WebForm\Transaction.aspx" />
     <Content Include="WebForm\WebForm2.aspx" />
+    <Content Include="Fonts\engula-medium.otf" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />

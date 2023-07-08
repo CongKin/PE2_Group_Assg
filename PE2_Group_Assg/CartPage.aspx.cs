@@ -8,39 +8,61 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.Configuration;
+using PE2_Group_Assg.WebForm;
 
 namespace PE2_Group_Assg
 {
     public partial class CartPage : System.Web.UI.Page
     {
-        SqlConnection con = new SqlConnection(WebConfigurationManager.ConnectionStrings["myconnection"].ConnectionString);
+        //SqlConnection con = new SqlConnection(WebConfigurationManager.ConnectionStrings["myconnection"].ConnectionString);
         protected void Page_Load(object sender, EventArgs e)
         {
             if(!IsPostBack)
             {
+                DataTable pTable = GetProducts();
+
+                // Set the data source and bind it to the DataList
+                cartList.DataSource = pTable;
+                cartList.DataBind(); 
             }
         }
 
-            /*public void Bind()
-            {
-                SqlCommand cmd = new SqlCommand("select * from Employee", con);
-                SqlDataAdapter dataAdapter = new SqlDataAdapter(cmd);
-                DataSet dataSet = new DataSet();
-                dataAdapter.Fill(dataSet, "Employee");
-                cartList.DataSource = dataSet.Tables[0];
-                cartList.DataBind();
-            }
+        private DataTable GetProducts() { 
+        
+            DataTable pTable = new DataTable();
+            pTable.Columns.Add("ProductID", typeof(int));
+            pTable.Columns.Add("ProductName", typeof(string));
+            pTable.Columns.Add("Price", typeof(decimal));
+            pTable.Columns.Add("ProductImageUrl", typeof(string));
+            pTable.Columns.Add("ProductDescription", typeof(string));
+            pTable.Columns.Add("ProductQuantity", typeof(int));
 
-            protected void dl1_EditCommand(object sender, DataListCommandEventArgs e)
-            {
-                cartList.EditItemIndex = e.Item.ItemIndex;
-                Bind();
-            }
-            protected void dl1_CancelCommand(object sender, DataListCommandEventArgs e)
-            {
-                cartList.EditItemIndex = -1;
-                Bind();
-            }*/
+
+            pTable.Rows.Add(1, "Product1", 199.89, "/Images/product-tag.jpg", "ASYVFYIFVNKDAPVPASLDPFKOJASOJVOPJSO AJSIJD", 1);
+
+            return pTable;
+        }
+
+        /*public void Bind()
+        {
+            SqlCommand cmd = new SqlCommand("select * from Employee", con);
+            SqlDataAdapter dataAdapter = new SqlDataAdapter(cmd);
+            DataSet dataSet = new DataSet();
+            dataAdapter.Fill(dataSet, "Employee");
+            cartList.DataSource = dataSet.Tables[0];
+            cartList.DataBind();
+        }
+
+        protected void dl1_EditCommand(object sender, DataListCommandEventArgs e)
+        {
+            cartList.EditItemIndex = e.Item.ItemIndex;
+            Bind();
+        }
+        protected void dl1_CancelCommand(object sender, DataListCommandEventArgs e)
+        {
+            cartList.EditItemIndex = -1;
+            Bind();
+        }*/
         /*protected void dl1_updateCommand(object sender, DataListCommandEventArgs e)
         {
             int index = e.Item.ItemIndex;
@@ -89,5 +111,14 @@ namespace PE2_Group_Assg
             }
 
         }*/
+        protected void button_ClickMinus(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void button_ClickAdd(object sender, EventArgs e)
+        {
+
+        }
     }
 }

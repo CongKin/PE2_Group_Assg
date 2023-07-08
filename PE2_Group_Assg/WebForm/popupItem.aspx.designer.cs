@@ -24,23 +24,14 @@ namespace PE2_Group_Assg.WebForm
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// closeModalButton control.
+        /// pImage control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button closeModalButton;
+        protected global::System.Web.UI.WebControls.Image pImage;
 
-        /// <summary>
-        /// <%# Eval("ImageID") %> control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Image<%# Eval("ImageID") %>;
-        
         /// <summary>
         /// pName control.
         /// </summary>
@@ -78,40 +69,39 @@ namespace PE2_Group_Assg.WebForm
         protected global::System.Web.UI.WebControls.Label userName;
 
         /// <summary>
-        /// Button1 control.
+        /// pDescrip control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl pDescrip;
 
         /// <summary>
-        /// quantity control.
+        /// qty control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label quantity;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl qty;
 
         /// <summary>
-        /// Button2 control.
+        /// amt control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button2;
+        protected global::System.Web.UI.WebControls.Label amt;
 
         /// <summary>
-        /// button control.
+        /// cartBtn control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button button;
-        */
+        protected global::System.Web.UI.WebControls.Button cartBtn;
     }
 }

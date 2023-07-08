@@ -57,6 +57,32 @@
             border-top:3px solid #F4F4F4;
             border-bottom: 3px solid #F4F4F4;
         }
+        .dataList{
+            width: 100%;
+            padding:0;
+            margin: 0;
+        }
+        .dataList table{
+            width: 100%;
+            margin-top: 15px;
+            font-family: "articocond";
+        }
+        td{
+            text-align: center;
+            vertical-align: top;
+        }
+        .productImage{
+            object-fit:cover;
+            width: 100px;
+            height: 100px;
+        }
+        .qty{
+            text-align:right;
+            margin-right: 125px;
+        }
+        .qtyLabel{
+            margin: 0 5px 0 5px;
+        }
         .checkout{
             display:flex;
             flex-direction:column;
@@ -129,26 +155,25 @@
 
             <div class =" content">
                 <asp:DataList ID="cartList" CssClass="dataList" runat="server" RepeatColumns="1" RepeatDirection="Horizontal"> 
-                    <!--OnEditCommand="dl1_EditCommand"      
-                    OnCancelCommand="dl1_CancelCommand"      
-                    OnUpdateCommand="dl1_updateCommand"      
-                    OnDeleteCommand="dl1_DeleteCommand">-->
+                    
                     <ItemTemplate>
                         <table>
                             <tr>
-                                <td><asp:Image ID="productImage" CssClass="productImage" runat="server" ImageUrl="<%# Eval("ProductImageUrl") %>" AlternateImageUrl="Images/product-tag.jpg"/></td>
-                                <td>
-                                    <asp:Label ID="productName" CssClass="productName" runat="server" Text="<%# Eval("ProductName") %>"></asp:Label>
-                                    <span class="productDescription"><%# Eval("ProductDescription") %></span>
-                                </td>
-                                <td>
-                                    <div class="qty">
-                                        <asp:Button ID="-Btn" Cssclass="-Btn" runat="server" Text="-" OnClick="button_ClickMinus" CommandArgument='<%# Eval("ProductID") %>'/>
-                                        <asp:Label ID="quantity" CssClass="qtyLabel" runat="server" Text="<%# Eval("ProductQuantity") %>'/>"></asp:Label>
-                                        <asp:Button ID="+Btn" Cssclass="+Btn" runat="server" Text="+" OnClick="button_ClickAdd" CommandArgument='<%# Eval("ProductID") %>'/>
+                                <td width="15%"><asp:Image ID="productImage" CssClass="productImage" runat="server" ImageUrl='<%# Eval("ProductImageUrl") %>'/></td>
+                                <td width="40%">
+                                    <div style="text-align:left; display: flex; flex-direction: column;">
+                                        <asp:Label ID="productName" CssClass="productName" runat="server" Text='<%# Eval("ProductName") %>'></asp:Label>
+                                        <span class="productDescription" style="margin-top: 20px; line-height: 0.8;"><%# Eval("ProductDescription") %></span>
                                     </div>
                                 </td>
-                                <td><asp:Label ID="price" CssClass="priceLabel" runat="server" Text="<%# Eval("ProductPrice") %>'/>"></asp:Label></td>
+                                <td width="25%">
+                                    <div class="qty">
+                                        <asp:Button ID="minusBtn" Cssclass="minusBtn" runat="server" Text="-" OnClick="button_ClickMinus" CommandArgument='<%# Eval("ProductID") %>'/>
+                                        <asp:Label ID="quantity" CssClass="qtyLabel" runat="server" Text='<%# Eval("ProductQuantity") %>'/></asp:Label>
+                                        <asp:Button ID="addBtn" Cssclass="addBtn" runat="server" Text="+" OnClick="button_ClickAdd" CommandArgument='<%# Eval("ProductID") %>'/>
+                                    </div>
+                                </td>
+                                <td width="20%"><div style="text-align:right;"><asp:Label ID="price" CssClass="priceLabel" runat="server" Text='<%# Eval("Price") %>'></asp:Label></div></td>
                             </tr>
                         </table>
                     </ItemTemplate>
@@ -157,13 +182,15 @@
 
             <div class="checkout">
                 <div class="subtotal">
-                    <table width="20%" align="right" padding="0" margin="0">
+                    <table width="30%" align="right" padding="0" margin="0">
                         <tr>
                             <th>
-                                <span>Subtotal</span>
+                                <span >Subtotal</span>
                             </th>
-                            <td>
-                                <asp:Label ID="total" CssClass="totalLabel" runat="server" Text="RM 50.00"></asp:Label>
+                            <td style="margin: 0; padding:0; vertical-align:bottom; padding-bottom: 8px;">
+                                <div style="height: 100%; vertical-align: middle;">
+                                 <asp:Label ID="total" CssClass="totalLabel" runat="server" Text="RM 50.00"></asp:Label>
+                                </div>
                             </td>
                         </tr>
                     </table>
