@@ -63,7 +63,7 @@ namespace PE2_Group_Assg.WebForm
 
         public void Bind()
         {
-            SqlCommand cmd = new SqlCommand("select * from PRODUCT", connection);
+            SqlCommand cmd = new SqlCommand("select * from PRODUCT where amount > 0", connection);
             SqlDataAdapter dataAdapter = new SqlDataAdapter(cmd);
             DataSet dataSet = new DataSet();
             dataAdapter.Fill(dataSet, "PRODUCT");
@@ -80,7 +80,7 @@ namespace PE2_Group_Assg.WebForm
 
         private void GetProductWithCategory(string categoryId)
         {
-            SqlCommand cmd = new SqlCommand("SELECT * FROM PRODUCT WHERE category_id = @CategoryId", connection);
+            SqlCommand cmd = new SqlCommand("SELECT * FROM PRODUCT WHERE category_id = @CategoryId and amount > 0", connection);
             cmd.Parameters.AddWithValue("@CategoryId", categoryId);
 
             SqlDataAdapter dataAdapter1 = new SqlDataAdapter(cmd);
