@@ -25,8 +25,20 @@
                 </div>
             </div>
             <div style="display: flex;">
-                <asp:RequiredFieldValidator ID="RVD_fname" runat="server" ErrorMessage="*Required" ControlToValidate="firstname" CssClass="error separate" Display="Dynamic"></asp:RequiredFieldValidator>
-                <asp:RequiredFieldValidator ID="RVD_lname" runat="server" ErrorMessage="*Required" ControlToValidate="lastname" CssClass="error separate" Display="Dynamic"></asp:RequiredFieldValidator>
+                <div>
+                    <asp:RequiredFieldValidator ID="RVD_fname" runat="server" ErrorMessage="*Required" ControlToValidate="firstName" CssClass="error separate" Display="Dynamic"></asp:RequiredFieldValidator>
+                    <asp:RegularExpressionValidator Display="Dynamic" ControlToValidate="firstName" ID="max_fname" ValidationExpression="^[\s\S]{0,45}$" runat="server" 
+                        ErrorMessage="*Maximum 45 characters allowed" CssClass="error"></asp:RegularExpressionValidator>
+                    <asp:RegularExpressionValidator Display="Dynamic" ControlToValidate="firstName" ID="min_fname" ValidationExpression="^[\s\S]{5,}$" runat="server" 
+                        ErrorMessage="*Minimum 5 characters allowed" CssClass="error"></asp:RegularExpressionValidator>
+                </div>
+                <div>
+                    <asp:RequiredFieldValidator ID="RVD_lname" runat="server" ErrorMessage="*Required" ControlToValidate="lastName" CssClass="error separate" Display="Dynamic"></asp:RequiredFieldValidator>
+                    <asp:RegularExpressionValidator Display="Dynamic" ControlToValidate="lastName" ID="max_lname" ValidationExpression="^[\s\S]{0,45}$" runat="server" 
+                        ErrorMessage="*Maximum 45 characters allowed" CssClass="error"></asp:RegularExpressionValidator>
+                    <asp:RegularExpressionValidator Display="Dynamic" ControlToValidate="lastName" ID="min_lname" ValidationExpression="^[\s\S]{5,}$" runat="server" 
+                        ErrorMessage="*Minimum 5 characters allowed" CssClass="error"></asp:RegularExpressionValidator>
+                </div>
             </div>
 
             <!-- gender-->

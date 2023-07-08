@@ -160,12 +160,15 @@
     <Content Include="Content\Site.css" />
     <Content Include="CSS\Account.css" />
     <Content Include="CSS\font.css" />
+    <Content Include="CSS\Transaction.css" />
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="Images\cod-icon.png" />
     <Content Include="Images\homepage.png" />
     <Content Include="Images\cart-icon.png" />
     <Content Include="Images\search-icon.png" />
+    <Content Include="Images\tng-icon.png" />
     <Content Include="Images\wishlist-icon.png" />
     <Content Include="Images\user-icon.png" />
     <Content Include="Images\product-tag.jpg" />
@@ -211,6 +214,7 @@
     <Content Include="WebForm\ProductListPage.aspx" />
     <Content Include="WebForm\Reset.aspx" />
     <Content Include="WebForm\ResetPwd.aspx" />
+    <Content Include="WebForm\Transaction.aspx" />
     <Content Include="WebForm\WebForm2.aspx" />
     <Content Include="Fonts\engula-medium.otf" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
@@ -401,6 +405,13 @@
     </Compile>
     <Compile Include="WebForm\ResetPwd.aspx.designer.cs">
       <DependentUpon>ResetPwd.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebForm\Transaction.aspx.cs">
+      <DependentUpon>Transaction.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm\Transaction.aspx.designer.cs">
+      <DependentUpon>Transaction.aspx</DependentUpon>
     </Compile>
     <Compile Include="WebForm\WebForm2.aspx.cs">
       <DependentUpon>WebForm2.aspx</DependentUpon>
