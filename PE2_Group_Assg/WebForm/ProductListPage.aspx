@@ -58,13 +58,9 @@
             height: 100%;
         }
         .pImage{
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            max-width: none;
-            min-width: 100%;
-            min-height: 100%;
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
         }
         .pNameLabel, .priceLabel, p{
             font-family: 'Times New Roman';
@@ -76,10 +72,14 @@
         .image-container{
             width: 200px; 
             height: 200px; 
-            overflow: hidden;
-            position: relative;
             border-radius: 10px;
             margin-bottom: 5px;
+            display:flex;
+            justify-content:center;
+            align-items: center;
+            background-color: lightgray;
+            overflow:hidden;
+
         }
 
         .container{
