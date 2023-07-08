@@ -7,3 +7,8 @@
     font-family: 'articocond';
     src: url('../Fonts/articocond.otf') format('truetype');
 }
+
+@font-face {
+    font-family: 'engula-medium';
+    src: url('../Fonts/engula-medium.otf') format('truetype');
+}

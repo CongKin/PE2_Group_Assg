@@ -2,9 +2,6 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
 using System.Web.UI.WebControls;
 
 namespace PE2_Group_Assg.WebForm
@@ -22,6 +19,8 @@ namespace PE2_Group_Assg.WebForm
             catList.DataBind();*/
             // Retrieve categories from the database
             List<Category> categories = new List<Category>();
+            
+            
             categories = GetCategoriesFromDatabase();
 
             // Bind the categories to the list control
@@ -40,7 +39,7 @@ namespace PE2_Group_Assg.WebForm
             catList.DataBind();
         }
 
-        protected void CategoryList_ItemCommand(object sender, ListViewCommandEventArgs e)
+        protected void categoryList_ItemCommand(object sender, DataListCommandEventArgs e)
         {
             if (e.CommandName == "SelectCategory")
             {
@@ -57,9 +56,12 @@ namespace PE2_Group_Assg.WebForm
             // Example using ADO.NET:
 
             var categories = new List<Category>();
-
+            Category category = new Category();
+            category.CategoryId = 0;
+            category.CategoryName = "All Category";
+            categories.Add(category);
             // Create a connection to the SQL Server database
-            using (var connection = new SqlConnection("YourConnectionString"))
+            using (SqlConnection connection = new SqlConnection(Database.Database.getConnectionString()))
             {
                 connection.Open();
 
@@ -76,8 +78,12 @@ namespace PE2_Group_Assg.WebForm
 
                             categories.Add(new Category { CategoryId = categoryId, CategoryName = categoryName });
                         }
+                        reader.Close();
                     }
                 }
+
+                connection.Close();
+               
             }
 
             return categories;

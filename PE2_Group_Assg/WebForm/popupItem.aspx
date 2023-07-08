@@ -2,17 +2,18 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml"  style="width:100%;height:100%;padding:0;margin:0;">
 <head runat="server">
     <title></title>
+    <link href="../CSS/font.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"/>
     <style>
-        .modalProduct{
-            margin: 20px;
-            border: 1px solid #000000;
+        .modalContainer{
             width: 700px;
             height: 350px;
             border-radius: 10px;
             padding: 50px 30px 50px 30px;
+            margin: 20px;
         }
         .pContainer{
             display: flex;
@@ -21,25 +22,28 @@
             width: 100%;
         }
         .pImgContainer{
-            border: 1px solid #000000;
             height: 100%;
-            width: 40%;
+            width: 50%;
             text-align:center;
             display: flex;
             justify-content: center;
+            align-items: center;
+            background-color: white;
         }
         .pImg{
             text-align:center;
             object-fit: fill;
-            width: 100%;
+            width: 90%;
             height: 100%;
+            border-radius: 10px;
         }
         .pDetails{
-            border: 1px solid #000000;
+            background-color: #F5F5F5;
             height: 100%;
-            width: 60%;
+            width: 50%;
             display: flex;
             flex-direction: column;
+            border-radius: 10px;
         }
         .head{
             margin: 20px 10px 5px 20px;
@@ -72,15 +76,36 @@
         .content table td{
             padding-left: 20px;
             padding-bottom: 10px;
+            font-family:'engula-medium', 'articocond';
+        }
+        .userName{
+            margin-left: 10px;
         }
         td p{
             padding: 0;
             margin: 0;
+            max-width: 90%;
         }
         .qBtn{
-            height:25px;
-            width: 25px;
-            padding-top: 0;
+            height:20px;
+            width: 20px;
+            padding: 0;
+            border-radius: 5px;
+            background-color: #121212;
+            color:#FCFCFF;
+            font-size: 20px;
+            font-weight:500;
+            display: flex;
+            justify-content:center;
+            line-height: 0.8;
+        }
+        .input-group-field{
+            font-family: 'engula-medium', 'articocond';
+            font-size: 14px;
+            font-weight: 400;
+            margin: 0 8px 0 8px;
+            width: 10%;
+            line-height: 1.5;
         }
         .cartBtn{
             margin-top: 5px;
@@ -93,18 +118,18 @@
             font-weight:500;
         }
     </style>
+    
 </head>
-<body>
-    <form id="form1" runat="server">
+<body style="width:100%;height:100%;padding:0;margin:0;">
+    <form id="form1" runat="server" style="background-color:#FFFFFF;width:100%;height:100%;padding:0;margin:0;display:flex;text-align:center;justify-content:center;">
         <div class="modalContainer">
             <div class="pContainer">
-                <asp:Button ID="closeModalButton" runat="server" Text="&times;" OnClick="closeModalButton_Click" />
                 <div class="pImgContainer">
-                    <asp:Image ID='<%# Eval("ImageID") %>' CssClass="pImg" runat="server" AlternateText="Product Image"/>
+                    <asp:Image ID="pImage" CssClass="pImg" runat="server" AlternateText="Product Image"/>
                 </div>
                 <div class="pDetails">
                     <div class="head">
-                        <asp:Label ID="pName" CssClass="pName" runat="server" Text='<%# Eval("ProductName") %>'>Product Name</asp:Label>
+                        <asp:Label ID="pName" CssClass="pName" runat="server" >Product</asp:Label>
                         <div class="wishListIcon">
                             <asp:ImageButton ID="addWishList" CssClass="addWishList" runat="server" ImageUrl="../Images/wishlist-icon.png" />
                         </div>
@@ -112,27 +137,30 @@
                     <div class="content">
                         <table>
                             <tr>
-                                <td><asp:Label ID="priceLabel" CssClass="priceLabel" runat="server" Text='<%# Eval("Price") %>'>RM 0.00</asp:Label></td>
+                                <td><asp:Label ID="priceLabel" CssClass="priceLabel" runat="server" >RM 0.00</asp:Label></td>
                             </tr>
                             <tr>
                                 <td> 
-                                    <img class="userIcon" src="../Images/user-icon.png" alt="" />
-                                    <asp:Label ID="userName" CssClass="userName" runat="server" Text='<%# Eval("UserName") %>'>User name</asp:Label>
-                                    <p class="productDescription"><%# Eval("ProductDescription") %>Product Description</p>
+                                    <div style="display: flex;  align-items: center; margin-bottom: 15px;">
+                                        <img class="userIcon" src="../Images/user-icon.png" alt="" />
+                                        <asp:Label ID="userName" CssClass="userName" runat="server" >Hello</asp:Label>
+                                    </div>
+                                    <p class="productDescription" id="pDescrip" runat="server">ASSSSDFGHKJH FGHJIKOLFYUILO:LKBVCYKILO:PJLJBL</p>
                                 </td>
                             </tr>
                         
                             <tr>
                                 <td >
+                                    <div style="display:flex;align-items:center;">
                                     <label id="quantityLabel" style="margin-right:5px;">Quantity</label>
-                                    <asp:Button ID="Button1" Cssclass="qBtn" runat="server" Text="-" OnClick="button_ClickMinus" CommandArgument='<%# Eval("ProductID") %>'/>
-                                    <asp:Label ID="quantity" CssClass="qtyLabel" runat="server" Text='<%# Eval("ProductQuantity") %>'>1</asp:Label>
-                                    <asp:Button ID="Button2" Cssclass="qBtn" runat="server" Text="+" OnClick="button_ClickAdd" CommandArgument='<%# Eval("ProductID") %>'/>
+                                    <input id="qty" class="input-group-field" type="number" name="quantity" value="1" runat="server"/>
+                                    <asp:Label ID="amt" CssClass="qtyLabel" runat="server" >4</asp:Label>
+                                    </div>
                                 </td>
                             </tr>
-                            <tr>
+                            <tr style="margin-top: 10px;">
                                 <td>
-                                    <asp:Button ID="button" Cssclass="cartBtn" runat="server" Text="Add to Cart" OnClick="addToCart" CommandArgument='<%# Eval("ProductID") %>'/>
+                                    <asp:Button ID="cartBtn" Cssclass="cartBtn" runat="server" Text="Add to Cart" OnClick="addToCart"/>
                                 </td>
                             </tr>
                         </table>
