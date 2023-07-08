@@ -60,13 +60,13 @@ namespace PE2_Group_Assg
         protected global::System.Web.UI.WebControls.DataList cartList;
 
         /// <summary>
-        /// total control.
+        /// subtotal control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label total;
+        protected global::System.Web.UI.WebControls.Label subtotal;
 
         /// <summary>
         /// infoColumn control.

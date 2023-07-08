@@ -80,9 +80,6 @@
             text-align:right;
             margin-right: 125px;
         }
-        .qtyLabel{
-            margin: 0 5px 0 5px;
-        }
         .checkout{
             display:flex;
             flex-direction:column;
@@ -129,6 +126,19 @@
             letter-spacing: 2px;
         }
     </style>
+    <script>
+        function updatePrice() {
+            var qtyInput = document.getElementById("qtyInput");
+            var total = document.getElementById("price");
+            var price = document.getElementById("priceLabel");
+
+            var quantity = parseInt(qtyInput.value);
+            var pricePerUnit = parseFloat(price.value);
+            var totalPrice = quantity * pricePerUnit; 
+    
+            total.innerText = totalPrice.toFixed(2);
+        }
+    </script>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -159,21 +169,20 @@
                     <ItemTemplate>
                         <table>
                             <tr>
-                                <td width="15%"><asp:Image ID="productImage" CssClass="productImage" runat="server" ImageUrl='<%# Eval("ProductImageUrl") %>'/></td>
+                                <td width="15%"><asp:Image ID="productImage" CssClass="productImage" runat="server" ImageUrl='<%# "ProductImageHandler.ashx?product_id=" + Eval("ProductID") %>'/></td>
                                 <td width="40%">
                                     <div style="text-align:left; display: flex; flex-direction: column;">
                                         <asp:Label ID="productName" CssClass="productName" runat="server" Text='<%# Eval("ProductName") %>'></asp:Label>
                                         <span class="productDescription" style="margin-top: 20px; line-height: 0.8;"><%# Eval("ProductDescription") %></span>
+                                        <asp:Label ID="priceLabel" CssClass="priceLabel" runat="server" Text='<%# Eval("Price") %>'></asp:Label>
                                     </div>
                                 </td>
                                 <td width="25%">
                                     <div class="qty">
-                                        <asp:Button ID="minusBtn" Cssclass="minusBtn" runat="server" Text="-" OnClick="button_ClickMinus" CommandArgument='<%# Eval("ProductID") %>'/>
-                                        <asp:Label ID="quantity" CssClass="qtyLabel" runat="server" Text='<%# Eval("ProductQuantity") %>'/></asp:Label>
-                                        <asp:Button ID="addBtn" Cssclass="addBtn" runat="server" Text="+" OnClick="button_ClickAdd" CommandArgument='<%# Eval("ProductID") %>'/>
+                                        <input id="qtyInput" class="input-group-field" type="number" name="quantity" value='<%# Eval("ProductQuantity") %>' runat="server" min="0" max='<%# Eval("MaxQuantity") %>' onchange="updatePrice(this)"/>
                                     </div>
                                 </td>
-                                <td width="20%"><div style="text-align:right;"><asp:Label ID="price" CssClass="priceLabel" runat="server" Text='<%# Eval("Price") %>'></asp:Label></div></td>
+                                <td width="20%"><div style="text-align:right;"><asp:Label ID="price" CssClass="priceLabel" runat="server" Text='<%# Eval("TotalPrice") %>'></asp:Label></div></td>
                             </tr>
                         </table>
                     </ItemTemplate>
@@ -189,7 +198,7 @@
                             </th>
                             <td style="margin: 0; padding:0; vertical-align:bottom; padding-bottom: 8px;">
                                 <div style="height: 100%; vertical-align: middle;">
-                                 <asp:Label ID="total" CssClass="totalLabel" runat="server" Text="RM 50.00"></asp:Label>
+                                 <asp:Label ID="subtotal" CssClass="totalLabel" runat="server" Text="RM 50.00"></asp:Label>
                                 </div>
                             </td>
                         </tr>
