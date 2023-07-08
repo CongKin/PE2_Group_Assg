@@ -9,11 +9,10 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"/>
     <style>
         .modalContainer{
-            width: 700px;
-            height: 350px;
             border-radius: 10px;
-            padding: 50px 30px 50px 30px;
-            margin: 20px;
+            width:100%;
+            height:100%;
+            padding:0px 20px 0px 20px;
         }
         .pContainer{
             display: flex;
@@ -54,7 +53,7 @@
             text-align: left;
         }
         .pName{
-            width: 50%;
+            
             font-family: "artico-black", Arial, sans-serif;
             font-size: 20px;    
         }
@@ -130,9 +129,7 @@
                 <div class="pDetails">
                     <div class="head">
                         <asp:Label ID="pName" CssClass="pName" runat="server" >Product</asp:Label>
-                        <div class="wishListIcon">
-                            <asp:ImageButton ID="addWishList" CssClass="addWishList" runat="server" ImageUrl="../Images/wishlist-icon.png" />
-                        </div>
+                        
                     </div>
                     <div class="content">
                         <table>
@@ -148,13 +145,18 @@
                                     <p class="productDescription" id="pDescrip" runat="server">ASSSSDFGHKJH FGHJIKOLFYUILO:LKBVCYKILO:PJLJBL</p>
                                 </td>
                             </tr>
-                        
+                            <tr>
+                                <td>
+                                    <span>Amount left: </span>
+                                    <asp:Label ID="amt" CssClass="qtyLabel" runat="server" Text="0"></asp:Label>
+                                </td>
+                            </tr>
                             <tr>
                                 <td >
                                     <div style="display:flex;align-items:center;">
-                                    <label id="quantityLabel" style="margin-right:5px;">Quantity</label>
-                                    <input id="qty" class="input-group-field" type="number" name="quantity" value="1" runat="server"/>
-                                    <asp:Label ID="amt" CssClass="qtyLabel" runat="server" >4</asp:Label>
+                                        <label id="quantityLabel" style="margin-right:5px;">Quantity</label>
+                                        <input id="qty" class="input-group-field" type="number" name="quantity" value="1" runat="server"/>
+                                    
                                     </div>
                                 </td>
                             </tr>

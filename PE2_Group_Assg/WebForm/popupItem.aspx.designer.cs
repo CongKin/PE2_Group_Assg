@@ -13,6 +13,7 @@ namespace PE2_Group_Assg.WebForm
 
     public partial class popupItem
     {
+
         /// <summary>
         /// form1 control.
         /// </summary>
@@ -39,15 +40,6 @@ namespace PE2_Group_Assg.WebForm
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label pName;
-
-        /// <summary>
-        /// addWishList control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton addWishList;
 
         /// <summary>
         /// priceLabel control.
@@ -77,15 +69,6 @@ namespace PE2_Group_Assg.WebForm
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl pDescrip;
 
         /// <summary>
-        /// qty control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl qty;
-
-        /// <summary>
         /// amt control.
         /// </summary>
         /// <remarks>
@@ -93,6 +76,15 @@ namespace PE2_Group_Assg.WebForm
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label amt;
+
+        /// <summary>
+        /// qty control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl qty;
 
         /// <summary>
         /// cartBtn control.

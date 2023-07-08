@@ -30,7 +30,6 @@
             font-size: 25px;
             font-weight: 900;
             letter-spacing: 1px;
-            padding-right: 750px;
         }
         .listContainer{
             min-height: 450px;
@@ -42,8 +41,10 @@
         }
         .productList{
             margin-top: 15px;
+            
         }
         .productList td{
+            width:25%;
             height: 100%;
             text-align: center;
             padding: 15px 15px;
@@ -54,8 +55,6 @@
             padding: 0;
             margin: 0;
             text-align:center;
-            width: 100%;
-            height: 100%;
         }
         .pImage{
             max-width: 100%;
@@ -70,8 +69,9 @@
         }
 
         .image-container{
-            width: 200px; 
-            height: 200px; 
+            max-height:200px;
+            min-width: 200px; 
+            min-height: 200px; 
             border-radius: 10px;
             margin-bottom: 5px;
             display:flex;
@@ -114,15 +114,20 @@
 
     
     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
-    <asp:Panel ID="popupPanel" runat="server" CssClass="modal" Style="display: none;background-color:#ffffff; ">
-        <div id="closediv" style="display:flex; text-align:right;float: right; margin-right: 50px;">
-            <asp:Button ID="closeBtn" runat="server" Text="&times;" style="border: none;background-color:#ffffff;font-size: 30px;"/> 
+    <asp:Panel ID="popupPanel" runat="server" CssClass="modal" Style="display: none;background-color:rgba(191, 191, 191, 0.5); width:100%; height:100%;">
+        <div style="width:100%; height:100%; display:flex; flex-direction:column; justify-content:center; text-align:center">
+            <div style="height:70%; width:60%; background-color:white; margin:auto; border-radius: 10px; padding: 20px 30px 20px 30px;">
+                <div id="closediv" style="display:flex; text-align:right;float: right;">
+                    <asp:Button ID="closeBtn" runat="server" Text="&times;" style="border: none;background-color:#ffffff;font-size: 30px;"/> 
+                </div>
+                <iframe id="iframeContent" src="" style="width: 100%; height: 80%;"></iframe> 
+            </div>
         </div>
-        <iframe id="iframeContent" src="" style="width: 100%; height: 100%;"></iframe> 
+        
     </asp:Panel>
 
     <cc1:ModalPopupExtender ID="popupExtender" runat="server" TargetControlID="dummyTarget"
-      PopupControlID="popupPanel" BackgroundCssClass="modalBackground" CancelControlID="Button2"/>
+      PopupControlID="popupPanel" BackgroundCssClass="modalBackground" CancelControlID="closeBtn"/>
     <asp:Button ID="dummyTarget" runat="server" Style="display: none" />
 
     
