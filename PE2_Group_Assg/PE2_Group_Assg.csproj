@@ -159,6 +159,7 @@
     <Content Include="Content\bootstrap.rtl.min.css" />
     <Content Include="Content\Site.css" />
     <Content Include="CSS\Account.css" />
+    <Content Include="CSS\AddProduct.css" />
     <Content Include="CSS\font.css" />
     <Content Include="CSS\Transaction.css" />
     <Content Include="Default.aspx" />
@@ -207,6 +208,7 @@
     <Content Include="Fonts\artico-black.otf" />
     <Content Include="Fonts\articocond.otf" />
     <Content Include="Test.aspx" />
+    <Content Include="WebForm\AddProduct.aspx" />
     <Content Include="WebForm\CreateAcc.aspx" />
     <Content Include="WebForm\HomePage.aspx" />
     <Content Include="WebForm\Login.aspx" />
@@ -346,6 +348,13 @@
     </Compile>
     <Compile Include="ViewSwitcher.ascx.designer.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="WebForm\AddProduct.aspx.cs">
+      <DependentUpon>AddProduct.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm\AddProduct.aspx.designer.cs">
+      <DependentUpon>AddProduct.aspx</DependentUpon>
     </Compile>
     <Compile Include="WebForm\CreateAcc.aspx.cs">
       <DependentUpon>CreateAcc.aspx</DependentUpon>

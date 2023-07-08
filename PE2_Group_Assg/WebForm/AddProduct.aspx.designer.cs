@@ -11,7 +11,7 @@ namespace PE2_Group_Assg.WebForm
 {
 
 
-    public partial class Transaction
+    public partial class AddProduct
     {
 
         /// <summary>
@@ -33,13 +33,13 @@ namespace PE2_Group_Assg.WebForm
         protected global::System.Web.UI.WebControls.TextBox name;
 
         /// <summary>
-        /// RVD_fname control.
+        /// RVD_name control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RVD_fname;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RVD_name;
 
         /// <summary>
         /// max_name control.
@@ -60,166 +60,139 @@ namespace PE2_Group_Assg.WebForm
         protected global::System.Web.UI.WebControls.RegularExpressionValidator min_name;
 
         /// <summary>
-        /// phone control.
+        /// description control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox phone;
+        protected global::System.Web.UI.WebControls.TextBox description;
 
         /// <summary>
-        /// RVD_phone control.
+        /// RVD_description control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RVD_phone;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RVD_description;
 
         /// <summary>
-        /// max_phone control.
+        /// max_description control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator max_phone;
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator max_description;
 
         /// <summary>
-        /// min_phone control.
+        /// min_description control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator min_phone;
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator min_description;
 
         /// <summary>
-        /// building control.
+        /// category control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList building;
+        protected global::System.Web.UI.WebControls.DropDownList category;
 
         /// <summary>
-        /// RVD_building control.
+        /// RVD_category control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RVD_building;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RVD_category;
 
         /// <summary>
-        /// room control.
+        /// image control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox room;
+        protected global::System.Web.UI.WebControls.FileUpload image;
 
         /// <summary>
-        /// RVD_room control.
+        /// RVD_image control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RVD_room;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RVD_image;
 
         /// <summary>
-        /// max_room control.
+        /// type_image control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator max_room;
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator type_image;
 
         /// <summary>
-        /// min_room control.
+        /// price control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator min_room;
+        protected global::System.Web.UI.WebControls.TextBox price;
 
         /// <summary>
-        /// message control.
+        /// RVD_price control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox message;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RVD_price;
 
         /// <summary>
-        /// max_message control.
+        /// digit_price control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator max_message;
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator digit_price;
 
         /// <summary>
-        /// cod control.
+        /// amount control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton cod;
+        protected global::System.Web.UI.WebControls.TextBox amount;
 
         /// <summary>
-        /// tng control.
+        /// RVD_amount control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton tng;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RVD_amount;
 
         /// <summary>
-        /// item_count control.
+        /// product_image control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label item_count;
-
-        /// <summary>
-        /// item_price control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label item_price;
-
-        /// <summary>
-        /// shiping_fee control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label shiping_fee;
-
-        /// <summary>
-        /// total control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label total;
+        protected global::System.Web.UI.WebControls.Image product_image;
 
         /// <summary>
         /// submit control.

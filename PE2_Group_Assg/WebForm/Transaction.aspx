@@ -6,6 +6,12 @@
 <head runat="server">
     <title>Transaction</title>
     <link href="../CSS/Transaction.css" rel="stylesheet" type="text/css" />
+    <style type="text/css">
+        .error {
+            color: red;
+            margin-left: 20px;
+        }
+    </style>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -16,16 +22,18 @@
                 <div class="deli-info">
                     <!-- personal information -->
                     <div class ="info">
+                        <!-- name -->
                         <h2>Full Name</h2>
                         <asp:TextBox ID="name" runat="server" placeholder="Please enter your name" CssClass="textbox"></asp:TextBox>
-                        <asp:RequiredFieldValidator ID="RVD_fname" runat="server" ErrorMessage="*Required" ControlToValidate="name" CssClass="error separate" Display="Dynamic"></asp:RequiredFieldValidator>
+                        <asp:RequiredFieldValidator ID="RVD_fname" runat="server" ErrorMessage="*Required" ControlToValidate="name" CssClass="error" Display="Dynamic"></asp:RequiredFieldValidator>
                         <asp:RegularExpressionValidator Display="Dynamic" ControlToValidate="name" ID="max_name" ValidationExpression="^[\s\S]{0,95}$" runat="server" 
                             ErrorMessage="*Maximum 95 characters allowed" CssClass="error"></asp:RegularExpressionValidator>
                         <asp:RegularExpressionValidator Display="Dynamic" ControlToValidate="name" ID="min_name" ValidationExpression="^[\s\S]{5,}$" runat="server" 
                             ErrorMessage="*Minimum 5 characters allowed" CssClass="error"></asp:RegularExpressionValidator>
+                        <!-- phone number -->
                         <h2>Phone Number</h2>
                         <asp:TextBox ID="phone" runat="server" placeholder="Please enter your phone number" CssClass="textbox"></asp:TextBox>
-                        <asp:RequiredFieldValidator ID="RVD_phone" runat="server" ErrorMessage="*Required" ControlToValidate="phone" CssClass="error separate" Display="Dynamic"></asp:RequiredFieldValidator>
+                        <asp:RequiredFieldValidator ID="RVD_phone" runat="server" ErrorMessage="*Required" ControlToValidate="phone" CssClass="error" Display="Dynamic"></asp:RequiredFieldValidator>
                         <asp:RegularExpressionValidator Display="Dynamic" ControlToValidate="phone" ID="max_phone" ValidationExpression="^[\s\S]{0,13}$" runat="server" 
                             ErrorMessage="*Maximum 13 characters allowed" CssClass="error"></asp:RegularExpressionValidator>
                         <asp:RegularExpressionValidator Display="Dynamic" ControlToValidate="phone" ID="min_phone" ValidationExpression="^[\s\S]{10,}$" runat="server" 
@@ -33,15 +41,19 @@
                     </div>
                     <!-- address information -->
                     <div class="info">
+                        <!-- building -->
                         <h2>Building</h2>
                         <asp:DropDownList ID="building" runat="server" CssClass="textbox"></asp:DropDownList>
+                        <asp:RequiredFieldValidator ID="RVD_building" runat="server" ErrorMessage="*Required" ControlToValidate="building" CssClass="error" Display="Dynamic"></asp:RequiredFieldValidator>
+                        <!-- room number -->
                         <h2>Room Number</h2>
                         <asp:TextBox ID="room" runat="server" placeholder="Please enter your room number. eg: A401" CssClass="textbox"></asp:TextBox>
-                        <asp:RequiredFieldValidator ID="RVD_room" runat="server" ErrorMessage="*Required" ControlToValidate="room" CssClass="error separate" Display="Dynamic"></asp:RequiredFieldValidator>
+                        <asp:RequiredFieldValidator ID="RVD_room" runat="server" ErrorMessage="*Required" ControlToValidate="room" CssClass="error" Display="Dynamic"></asp:RequiredFieldValidator>
                         <asp:RegularExpressionValidator Display="Dynamic" ControlToValidate="room" ID="max_room" ValidationExpression="^[\s\S]{0,8}$" runat="server" 
                             ErrorMessage="*Maximum 8 characters allowed" CssClass="error"></asp:RegularExpressionValidator>
                         <asp:RegularExpressionValidator Display="Dynamic" ControlToValidate="room" ID="min_room" ValidationExpression="^[\s\S]{4,}$" runat="server" 
                             ErrorMessage="*Minimum 4 characters allowed" CssClass="error"></asp:RegularExpressionValidator>
+                        <!-- message -->
                         <h2>Message</h2>
                         <asp:TextBox ID="message" runat="server" placeholder="Leave your message" CssClass="textbox"></asp:TextBox>
                         <asp:RegularExpressionValidator Display="Dynamic" ControlToValidate="message" ID="max_message" ValidationExpression="^[\s\S]{0,150}$" runat="server" 
