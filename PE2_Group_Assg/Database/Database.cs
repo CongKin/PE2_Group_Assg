@@ -9,7 +9,7 @@ namespace PE2_Group_Assg.Database
     {
         public static string getConnectionString()
         {
-            string ip_address = "192.168.0.179,49170";
+            string ip_address = "192.168.43.254,49170";
             string connectionString = "Data Source=" + ip_address + "; Initial Catalog=CampusTrade; Integrated Security=False; User ID=admin; Password=admin";
 
             return connectionString;

@@ -58,14 +58,32 @@
             height: 100%;
         }
         .pImage{
-            width: 200px;
-            height: 200px;
-            border-radius: 10px;
-            margin-bottom: 5px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            max-width: none;
+            min-width: 100%;
+            min-height: 100%;
         }
         .pNameLabel, .priceLabel, p{
             font-family: 'Times New Roman';
             font-weight: 600;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+
+        .image-container{
+            width: 200px; 
+            height: 200px; 
+            overflow: hidden;
+            position: relative;
+            border-radius: 10px;
+            margin-bottom: 5px;
+        }
+
+        .container{
+            width: 200px;
         }
 
     </style>
@@ -80,9 +98,14 @@
             <asp:DataList ID="productList" CssClass="productList" runat="server" RepeatColumns="4" RepeatDirection="Horizontal"> 
                 <ItemTemplate>
                     <div id="modalButton" class="pdiv" runat="server" onclick='<%# "openPopup(" + Eval("product_id").ToString() + ");" %>' >
-                        <asp:Image ID="productImage" CssClass="pImage" runat="server" ImageUrl='<%# "ProductImageHandler.ashx?product_id=" + Eval("product_id") %>' AlternateText="Product Image" />
-                        <asp:Label ID="productNameLabel" CssClass="pNameLabel" runat="server" Text='<%# Eval("name") %>'></asp:Label>
-                        <p>RM <asp:Label ID="priceLabel" CssClass="priceLabel" runat="server" Text='<%# Eval("price") %>'></asp:Label></p>
+                        <div class ="image-container">
+                            <asp:Image ID="productImage" CssClass="pImage" runat="server" ImageUrl='<%# "ProductImageHandler.ashx?product_id=" + Eval("product_id") %>' AlternateText="Product Image" />
+                         </div>
+                        <div class="container">
+                            <asp:Label ID="productNameLabel" CssClass="pNameLabel" runat="server" Text='<%# Eval("name") %>'></asp:Label>
+                            <p>RM <asp:Label ID="priceLabel" CssClass="priceLabel" runat="server" Text='<%# Eval("price") %>'></asp:Label></p>
+                        </div>
+                        
                     </div>
                 </ItemTemplate>
             </asp:DataList>

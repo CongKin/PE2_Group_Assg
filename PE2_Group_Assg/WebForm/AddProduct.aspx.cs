@@ -56,12 +56,12 @@ namespace PE2_Group_Assg.WebForm
 
             SqlConnection connection = new SqlConnection(Database.Database.getConnectionString());
             connection.Open();
-            SqlCommand cmd = new SqlCommand("insert into PRODUCT (name, price, user_id, description, amount, category_id, image) values (@name, @price, @user, @description, @amount, @category_id, @image", connection);
+            SqlCommand cmd = new SqlCommand("insert into PRODUCT (name, price, user_id, description, amount, category_id, image) values (@name, @price, @user, @description, @amount, @category_id, @image)", connection);
             cmd.Parameters.AddWithValue("@name", name_text);
             cmd.Parameters.AddWithValue("@price", price_value);
             cmd.Parameters.AddWithValue("@user", user_id);
             cmd.Parameters.AddWithValue("description", description_text);
-            cmd.Parameters.AddWithValue("@amoumt", amount_value);
+            cmd.Parameters.AddWithValue("@amount", amount_value);
             cmd.Parameters.AddWithValue("@category_id", category_id);
             cmd.Parameters.AddWithValue("@image", bytes);
 

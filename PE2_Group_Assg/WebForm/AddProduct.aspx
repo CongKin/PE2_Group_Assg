@@ -150,7 +150,7 @@
             </div>
         </div>
         <div class="submit-container">
-            <asp:Button ID="submit" runat="server" Text="SUBMIT" CssClass="submit" />
+            <asp:Button ID="submit" runat="server" Text="SUBMIT" CssClass="submit" OnClick="submit_clicked" />
         </div>
     </form>
 </body>
