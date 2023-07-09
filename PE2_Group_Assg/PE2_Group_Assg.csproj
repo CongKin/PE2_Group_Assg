@@ -175,10 +175,6 @@
     <Content Include="Images\wishlist-icon.png" />
     <Content Include="Images\user-icon.png" />
     <Content Include="Images\product-tag.jpg" />
-    <Content Include="LoginPages\CreateAcc.aspx" />
-    <Content Include="LoginPages\Login.aspx" />
-    <Content Include="LoginPages\Reset.aspx" />
-    <Content Include="LoginPages\ResetPwd.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.esm.js" />
@@ -212,14 +208,12 @@
     <Content Include="Test.aspx" />
     <Content Include="WebForm\AddProduct.aspx" />
     <Content Include="WebForm\CreateAcc.aspx" />
-    <Content Include="WebForm\HomePage.aspx" />
     <Content Include="WebForm\Login.aspx" />
     <Content Include="WebForm\popupItem.aspx" />
     <Content Include="WebForm\ProductListPage.aspx" />
     <Content Include="WebForm\Reset.aspx" />
     <Content Include="WebForm\ResetPwd.aspx" />
     <Content Include="WebForm\Transaction.aspx" />
-    <Content Include="WebForm\WebForm2.aspx" />
     <Content Include="Fonts\engula-medium.otf" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -293,34 +287,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="LoginPages\CreateAcc.aspx.cs">
-      <DependentUpon>CreateAcc.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="LoginPages\CreateAcc.aspx.designer.cs">
-      <DependentUpon>CreateAcc.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="LoginPages\Login.aspx.cs">
-      <DependentUpon>Login.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="LoginPages\Login.aspx.designer.cs">
-      <DependentUpon>Login.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="LoginPages\Reset.aspx.cs">
-      <DependentUpon>Reset.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="LoginPages\Reset.aspx.designer.cs">
-      <DependentUpon>Reset.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="LoginPages\ResetPwd.aspx.cs">
-      <DependentUpon>ResetPwd.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="LoginPages\ResetPwd.aspx.designer.cs">
-      <DependentUpon>ResetPwd.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Mail\Mail.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Site.Master.cs">
@@ -364,13 +330,6 @@
     </Compile>
     <Compile Include="WebForm\CreateAcc.aspx.designer.cs">
       <DependentUpon>CreateAcc.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="WebForm\HomePage.aspx.cs">
-      <DependentUpon>HomePage.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="WebForm\HomePage.aspx.designer.cs">
-      <DependentUpon>HomePage.aspx</DependentUpon>
     </Compile>
     <Compile Include="WebForm\Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
@@ -423,13 +382,6 @@
     </Compile>
     <Compile Include="WebForm\Transaction.aspx.designer.cs">
       <DependentUpon>Transaction.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="WebForm\WebForm2.aspx.cs">
-      <DependentUpon>WebForm2.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="WebForm\WebForm2.aspx.designer.cs">
-      <DependentUpon>WebForm2.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
