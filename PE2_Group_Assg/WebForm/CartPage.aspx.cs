@@ -148,7 +148,10 @@ namespace PE2_Group_Assg
 
         protected void checkout_OnClick(object sender, EventArgs e)
         {
-            if(decimal.Parse(subtotal.Text) > 0)
+            string label = subtotal.Text.ToString().Replace("RM", "");
+            decimal sub = decimal.Parse(label);
+
+            if (sub > 0)
             {
                 foreach (DataListItem item in cartList.Items)
                 {
