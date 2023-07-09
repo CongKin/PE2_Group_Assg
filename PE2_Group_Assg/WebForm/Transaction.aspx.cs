@@ -17,7 +17,7 @@ namespace PE2_Group_Assg.WebForm
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            Session["user_id"] = Database.Database.Base64Encode("6");
+           
 
             //  building drop down lsit
             SqlConnection connection = new SqlConnection(Database.Database.getConnectionString());
@@ -91,7 +91,7 @@ namespace PE2_Group_Assg.WebForm
             connection.Open();
 
             // get cart product count
-            SqlCommand getCartAmount = new SqlCommand("select CART.count(*) from CART,PRODUCT where CART.user_id = @user and CART.product_id = PRODUCT.product_id and PRODUCT.amount>0", connection);
+            SqlCommand getCartAmount = new SqlCommand("select count(*) from CART,PRODUCT where CART.user_id = @user and CART.product_id = PRODUCT.product_id and PRODUCT.amount>0", connection);
             getCartAmount.Parameters.AddWithValue("@user", user_id);
 
             SqlDataReader reader1 = getCartAmount.ExecuteReader();
@@ -155,7 +155,7 @@ namespace PE2_Group_Assg.WebForm
             cmd2.Parameters.AddWithValue("@user", user_id);
 
             int transactionProductRowAffected = cmd2.ExecuteNonQuery();
-            if(transactionProductRowAffected != cart_amount)
+            if(transactionProductRowAffected <= 0)
             {
                 Response.Write("<script>alert('Error in updating transaction information 3');</script>");
                 connection.Close();
@@ -164,10 +164,10 @@ namespace PE2_Group_Assg.WebForm
 
             // reduce amount at product table
             SqlCommand cmd3 = new SqlCommand("update PRODUCT set PRODUCT.amount = PRODUCT.amount - CART.amount"+
-                " from CART where PRODUCT.product_id = CART.product_id and CART.user_id = @user and PRODUCT.amount > 0;");
+                " from CART where PRODUCT.product_id = CART.product_id and CART.user_id = @user and PRODUCT.amount > 0;", connection);
             cmd3.Parameters.AddWithValue("@user", user_id);
             int productRowAffected = cmd3.ExecuteNonQuery();
-            if (productRowAffected != cart_amount)
+            if (productRowAffected <= 0)
             {
                 Response.Write("<script>alert('Error in updating transaction information 4');</script>");
                 connection.Close();
@@ -179,10 +179,10 @@ namespace PE2_Group_Assg.WebForm
 
             // clear the user cart
             SqlCommand cmd4 = new SqlCommand("delete from CART where user_id = @user and product_id in (select product_id from PRODUCT where amount>0)", connection);
-            cmd3.Parameters.AddWithValue("@user", user_id);
+            cmd4.Parameters.AddWithValue("@user", user_id);
 
             int cartRowAffected = cmd4.ExecuteNonQuery();
-            if (cartRowAffected != cart_amount)
+            if (cartRowAffected <= 0)
             {
                 Response.Write("<script>alert('Error in updating transaction information 4');</script>");
                 connection.Close();

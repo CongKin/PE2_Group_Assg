@@ -57,9 +57,9 @@ namespace PE2_Group_Assg
         }
         private void AddProducts(int pId, string pName, decimal price, string pdesc, int qty, int maxQty) {
 
-            DataRow existingRow = pTable.Rows.Find(pId);
+            //DataRow existingRow = pTable.Rows.Find(pId);
 
-            if (existingRow != null)
+            /*if (existingRow != null)
             {
                 int existingQty = Convert.ToInt32(existingRow["ProductQuantity"]);
                 int newQty = existingQty + qty;
@@ -69,10 +69,10 @@ namespace PE2_Group_Assg
                 existingRow["TotalPrice"] = newTotal;
             }
             else
-            {
+            {*/
                 decimal total_price = Convert.ToDecimal(qty * price);
                 pTable.Rows.Add(pId, pName, price, pdesc, qty,maxQty, total_price);
-            }
+            //}
             
         }
 
@@ -138,12 +138,9 @@ namespace PE2_Group_Assg
                     int quantity = Convert.ToInt32(qtyInput.Value);
 
                     UpdateQuantityInDatabase(productId, quantity);
+                    Page.Response.Redirect(Page.Request.Url.ToString(), true);
                 }
             }
-            Bind();
-            cartList.DataSource = GetProductsTable();
-            cartList.DataBind();
-            subtotal.Text = CalculateSubtotal().ToString();
         }
 
         protected void checkout_OnClick(object sender, EventArgs e)
@@ -180,8 +177,10 @@ namespace PE2_Group_Assg
             // Update the database with the new quantity using SQL query or stored procedure
             if(quantity <= 0)
             {
-                SqlCommand cmd2 = new SqlCommand("delete from CART WHERE product_id = @productID;", connection);
+                SqlCommand cmd2 = new SqlCommand("delete from CART WHERE product_id = @productID and user_id = @userID; ", connection);
                 cmd2.Parameters.AddWithValue("@productID", productId);
+                int userId = int.Parse(Database.Database.Base64Decode(Session["user_id"].ToString()));
+                cmd2.Parameters.AddWithValue("@userID", userId);
                 cmd2.ExecuteNonQuery();
                 Response.Write("<script>alert('deleted');</script>");
             }

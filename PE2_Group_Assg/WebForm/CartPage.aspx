@@ -60,12 +60,11 @@
             text-align: right;
             padding-right: 40px;
         }
+        .container{
+            height: 100%;
+        }
         .content{
             margin: 0 40px 40px 30px;
-            height: 100%;
-            min-height: 250px;
-            max-height: 280px;
-            overflow-y: auto;
             border-top:3px solid #F4F4F4;
             scrollbar-width: none; /* Hide the scrollbar for Firefox */
             -ms-overflow-style: none;
