@@ -24,6 +24,15 @@ namespace PE2_Group_Assg
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
+        /// saveBtn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button saveBtn;
+
+        /// <summary>
         /// title1Label control.
         /// </summary>
         /// <remarks>
@@ -76,5 +85,14 @@ namespace PE2_Group_Assg
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label infoColumn;
+
+        /// <summary>
+        /// checkoutBtn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button checkoutBtn;
     }
 }
