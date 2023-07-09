@@ -149,7 +149,7 @@ namespace PE2_Group_Assg.WebForm
                 int accountRowAffected = cmd3.ExecuteNonQuery();
                 if (accountRowAffected > 0)
                 {
-                    Response.Write("<script>function showPopup() { var result = confirm('Do you want to proceed?'); if (result) { window.location.href = 'CartPage.aspx'; } else {  } } showPopup(); </script>");
+                    Response.Write("<script>alert('The item is added to your cart');</script>");
                     return;
                 }
                 else
@@ -168,7 +168,8 @@ namespace PE2_Group_Assg.WebForm
                 int accountRowAffected = cmd2.ExecuteNonQuery();
                 if (accountRowAffected > 0)
                 {
-                    Response.Write("<script>function showPopup() { var result = confirm('Do you want to proceed?'); if (result) { window.location.href = 'CartPage.aspx'; } else {  } } showPopup(); </script>");
+                    Response.Write("<script>alert('The item is added to your cart');</script>");
+                    //Response.Write("<script>function showPopup() { var result = confirm('Do you want to proceed?'); if (result) { window.location.href = 'CartPage.aspx'; } else {  } } showPopup(); </script>");
                     return;
                 }
                 else
