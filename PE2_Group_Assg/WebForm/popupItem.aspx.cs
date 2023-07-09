@@ -17,8 +17,6 @@ namespace PE2_Group_Assg.WebForm
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Session["user_id"] = Database.Database.Base64Encode("6");
-
             if (!IsPostBack)
             {
                 if(Request.QueryString["productId"] != null){
