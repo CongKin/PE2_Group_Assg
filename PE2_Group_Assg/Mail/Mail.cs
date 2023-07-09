@@ -149,7 +149,7 @@ namespace PE2_Group_Assg.Mail
 
                 MailMessage seller_mail = new MailMessage();
                 seller_mail.To.Add(seller_email.Trim());
-                seller_mail.Subject = "Transaction Confirmation - " + product_name;
+                seller_mail.Subject = "Transaction Confirmation - " + seller_name;
                 seller_mail.Body = "<p>Dear " + seller_name + ",</p>" +
                     "<p>We are writing to confirm that a transaction has taken place for the sale of " + product_name +
                     ". As the seller, we want to provide you with the details of this transaction for your reference:</p>"+
@@ -158,11 +158,12 @@ namespace PE2_Group_Assg.Mail
                     "<li>Buyer's Name: " +  buyer_name+ "</li>" +
                     "<li>Transaction ID:" + transaction_id + "</li>" +
                     "<li>Date of Transaction: " + currentDate + "</li>" +
+                    "<li>Product Name: " + product_name + "</li>" +
                     "<li>Total Amount: RM " + amount * price +"</li>" +
                     "<li>Payment Method: " + method + "</li>"+
                     "</ul>"+
                     "<p>Please review the provided information and ensure its accuracy. If you have any concerns or questions regarding this transaction, " +
-                    "please don't hesitate to contact us immediately at [Contact Email/Phone Number]. We are here to assist you and address any issues that may arise.</p>"+
+                    "please don't hesitate to contact us immediately at campustrade180@gmail.com. We are here to assist you and address any issues that may arise.</p>"+
                     "<p>We kindly request your prompt attention to this matter. As per our policy, please prepare the item for shipment to the buyer within " +
                     "5 working days and provide us with the tracking information once available. This will help us ensure a smooth and timely delivery to the buyer.</p>"+
                     "<p>We appreciate your cooperation and professionalism in handling this transaction. Your dedication to customer satisfaction is highly valued, " +
