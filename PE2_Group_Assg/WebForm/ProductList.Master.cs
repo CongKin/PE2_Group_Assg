@@ -15,8 +15,6 @@ namespace PE2_Group_Assg.WebForm
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            Session["user_id"] = Database.Database.Base64Encode("6");
-
             // check user is login or not
             if (isLogin())
             {
