@@ -167,7 +167,7 @@
                                     <asp:TextBox ID="searchTextBox" runat="server" CssClass="form-control mr-sm-2 col-md-12" placeholder="Search" aria-label="Search"></asp:TextBox>
                                 </div>
                                 <div class="input-group-append col-md-2">
-                                    <asp:Button ID="searchButton" runat="server" CssClass="btn btn-outline-success my-2 my-sm-0 custom-button" Text="Search" />
+                                    <asp:Button ID="searchButton" runat="server" CssClass="btn btn-outline-success my-2 my-sm-0 custom-button" Text="Search" OnClick="search_clicked" />
                                 </div>
                             </div>
                     
@@ -181,11 +181,11 @@
                                 </li>
                                 <li class="nav-item d-flex align-items-center">
                                     <img class="cartIcon" src="../Images/cart-icon.png" alt=""/>
-                                    <asp:LinkButton ID="cart_button" runat="server" Text="Cart" CssClass="nav-link"></asp:LinkButton>
+                                    <asp:LinkButton ID="cart_button" runat="server" Text="Cart" CssClass="nav-link" OnClick="cart_clicked"></asp:LinkButton>
                                 </li>
                                 <li class="nav-item d-flex align-items-center">
                                     <img class="wishlistIcon" src="../Images/add-icon.png" alt=""/>
-                                    <asp:LinkButton ID="add_button" runat="server" Text="Add Product" CssClass="nav-link"></asp:LinkButton>
+                                    <asp:LinkButton ID="add_button" runat="server" Text="Add Product" CssClass="nav-link" OnClick="addProduct_clicked"></asp:LinkButton>
                                 </li>
                             </ul>
                         </nav>

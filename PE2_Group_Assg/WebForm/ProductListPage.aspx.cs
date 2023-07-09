@@ -15,7 +15,6 @@ namespace PE2_Group_Assg.WebForm
 {
     public partial class ProductListPage : System.Web.UI.Page
     {
-        SqlConnection connection = new SqlConnection(Database.Database.getConnectionString());
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -30,7 +29,8 @@ namespace PE2_Group_Assg.WebForm
                     }
                     else
                     {
-
+                        SqlConnection connection = new SqlConnection(Database.Database.getConnectionString());
+                        connection.Open();
                         SqlCommand cmd = new SqlCommand("SELECT name FROM CATEGORY WHERE category_id = @CategoryId", connection);
                         cmd.Parameters.AddWithValue("@CategoryId", categoryId);
 
@@ -45,6 +45,16 @@ namespace PE2_Group_Assg.WebForm
                         }
 
                         GetProductWithCategory(categoryId);
+                        connection.Close();
+                    }
+                }
+                else if(Request.QueryString["keyword"] != null)
+                {
+                    string keyword = Request.QueryString["keyword"];
+                    if (!keyword.IsNullOrWhiteSpace())
+                    {
+                        catTitle.Text = "Keyword: " + keyword;
+                        GetProductWithKeyword(keyword);
                     }
                 }
                 else
@@ -63,12 +73,15 @@ namespace PE2_Group_Assg.WebForm
 
         public void Bind()
         {
+            SqlConnection connection = new SqlConnection(Database.Database.getConnectionString());
+            connection.Open();
             SqlCommand cmd = new SqlCommand("select * from PRODUCT where amount > 0", connection);
             SqlDataAdapter dataAdapter = new SqlDataAdapter(cmd);
             DataSet dataSet = new DataSet();
             dataAdapter.Fill(dataSet, "PRODUCT");
             if(productList.DataSource == dataSet.Tables[0])
             {
+                connection.Close();
                 return;
             }
             else
@@ -76,10 +89,13 @@ namespace PE2_Group_Assg.WebForm
                 productList.DataSource = dataSet.Tables[0];
                 productList.DataBind();
             }
+            connection.Close();
         }
 
         private void GetProductWithCategory(string categoryId)
         {
+            SqlConnection connection = new SqlConnection(Database.Database.getConnectionString());
+            connection.Open();
             SqlCommand cmd = new SqlCommand("SELECT * FROM PRODUCT WHERE category_id = @CategoryId and amount > 0", connection);
             cmd.Parameters.AddWithValue("@CategoryId", categoryId);
 
@@ -89,7 +105,26 @@ namespace PE2_Group_Assg.WebForm
 
             productList.DataSource = productTable;
             productList.DataBind();
+            connection.Close();
         }
+
+        private void GetProductWithKeyword(string keyword)
+        {
+           
+            SqlConnection connection = new SqlConnection(Database.Database.getConnectionString());
+            connection.Open();
+            SqlCommand cmd = new SqlCommand("SELECT * FROM PRODUCT WHERE name like @keyword and amount > 0", connection);
+            cmd.Parameters.AddWithValue("@keyword",  "%" + keyword + "%");
+
+            SqlDataAdapter dataAdapter1 = new SqlDataAdapter(cmd);
+            DataTable productTable = new DataTable();
+            dataAdapter1.Fill(productTable);
+
+            productList.DataSource = productTable;
+            productList.DataBind();
+            connection.Close();
+        }
+
         private DataTable GetProducts()
         {
             DataTable pTable= new DataTable();

@@ -1,8 +1,10 @@
-﻿using System;
+﻿using Microsoft.Ajax.Utilities;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Web.UI.WebControls;
+using static PE2_Group_Assg.WebForm.ProductList;
 
 namespace PE2_Group_Assg.WebForm
 {
@@ -13,7 +15,7 @@ namespace PE2_Group_Assg.WebForm
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            //Session["user_id"] = Database.Database.Base64Encode("6");
+            Session["user_id"] = Database.Database.Base64Encode("6");
 
             // check user is login or not
             if (isLogin())
@@ -57,7 +59,15 @@ namespace PE2_Group_Assg.WebForm
                 int categoryId = int.Parse(e.CommandArgument.ToString());
 
                 // Redirect to another page and pass the category ID as a query parameter
-                Response.Redirect("ProductListPage.aspx?categoryId=" + categoryId);
+                if(categoryId == 0)
+                {
+                    Response.Redirect("ProductListPage.aspx");
+                }
+                else
+                {
+                    Response.Redirect("ProductListPage.aspx?categoryId=" + categoryId);
+                }
+               
             }
         }
 
@@ -83,9 +93,36 @@ namespace PE2_Group_Assg.WebForm
             }
             else
             {
-                Response.Redirect("Login.aspx");
+                Response.Redirect("CartPage.aspx");
             }
         }
+
+        protected void addProduct_clicked(object sender, EventArgs e)
+        {
+            if(!isLogin())
+            {
+                Response.Write("<script>alert('You haven't login, Please login to your account');</script>");
+                Response.Redirect("Login.aspx");
+            }
+            else
+            {
+                Response.Redirect("AddProduct.aspx");
+            }
+        }
+
+        protected void search_clicked(object sender, EventArgs e)
+        {
+            string search_Text = searchTextBox.Text;
+            if (search_Text.IsNullOrWhiteSpace())
+            {
+                Response.Redirect("ProductListPage.aspx");
+            }
+            else
+            {
+                Response.Redirect("ProductListPage.aspx?keyword=" + search_Text);
+            }
+        }
+
 
         private List<Category> GetCategoriesFromDatabase()
         {

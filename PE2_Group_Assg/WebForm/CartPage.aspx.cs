@@ -19,6 +19,8 @@ namespace PE2_Group_Assg
         SqlConnection connection = new SqlConnection(Database.Database.getConnectionString());
         protected void Page_Load(object sender, EventArgs e)
         {
+            //Session["user_id"] = Database.Database.Base64Encode("");
+
             if(!IsPostBack)
             {
                 /*if (Request.Form["productId"] != null)
@@ -30,8 +32,6 @@ namespace PE2_Group_Assg
                     UpdateQuantityInDatabase(productId, quantity);
 
                 }*/
-
-                Session["user_id"] = Database.Database.Base64Encode("6");
 
                 InitProductsTable();
                 
@@ -89,7 +89,8 @@ namespace PE2_Group_Assg
             DataTable dt = new DataTable();
 
 
-            SqlCommand cmd = new SqlCommand("select PRODUCT.product_id, PRODUCT.name, PRODUCT.price, PRODUCT.description, PRODUCT.amount as max_amount, CART.amount as cart_amount from PRODUCT, CART where PRODUCT.product_id = CART.product_id and CART.user_id = @user_id;", connection);
+            SqlCommand cmd = new SqlCommand("select PRODUCT.product_id, PRODUCT.name, PRODUCT.price, PRODUCT.description, PRODUCT.amount as max_amount, CART.amount as cart_amount " +
+                "from PRODUCT, CART where PRODUCT.product_id = CART.product_id and CART.user_id = @user_id and PRODUCT.amount>0;", connection);
             int userId = int.Parse(Database.Database.Base64Decode(Session["user_id"].ToString()));
 
             cmd.Parameters.AddWithValue("@user_id", userId);

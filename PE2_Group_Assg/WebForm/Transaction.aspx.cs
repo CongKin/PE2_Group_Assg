@@ -34,7 +34,7 @@ namespace PE2_Group_Assg.WebForm
             building.DataBind();
 
             // cart detail
-            SqlCommand cmd = new SqlCommand("select PRODUCT.price, CART.amount from PRODUCT, CART where PRODUCT.product_id = CART.product_id and CART.user_id = @user_id  ", connection);
+            SqlCommand cmd = new SqlCommand("select PRODUCT.price, CART.amount from PRODUCT, CART where PRODUCT.product_id = CART.product_id and CART.user_id = @user_id and PRODUCT.amount > 0 ", connection);
             int userId = int.Parse(Database.Database.Base64Decode(Session["user_id"].ToString()));
 
             cmd.Parameters.AddWithValue("@user_id", userId);
@@ -91,7 +91,7 @@ namespace PE2_Group_Assg.WebForm
             connection.Open();
 
             // get cart product count
-            SqlCommand getCartAmount = new SqlCommand("select count(*) from CART where user_id = @user", connection);
+            SqlCommand getCartAmount = new SqlCommand("select CART.count(*) from CART,PRODUCT where CART.user_id = @user and CART.product_id = PRODUCT.product_id and PRODUCT.amount>0", connection);
             getCartAmount.Parameters.AddWithValue("@user", user_id);
 
             SqlDataReader reader1 = getCartAmount.ExecuteReader();
@@ -150,7 +150,7 @@ namespace PE2_Group_Assg.WebForm
 
             // insert product in the transaction
             SqlCommand cmd2 = new SqlCommand("insert into TRANSACTION_PRODUCT (transaction_id, product_id, amount) " +
-                "select @tran_id, product_id, amount from CART where user_id = @user", connection);
+                "select @tran_id, CART.product_id, CART.amount from CART, PRODUCT where CART.user_id = @user and CART.product_id = PRODUCT.product_id and PRODUCT.amount>0", connection);
             cmd2.Parameters.AddWithValue("@tran_id", transaction_id);
             cmd2.Parameters.AddWithValue("@user", user_id);
 
@@ -162,27 +162,26 @@ namespace PE2_Group_Assg.WebForm
                 return;
             }
 
-            // get user Email
-
-            SqlCommand getEmail = new SqlCommand("select email from [USER] where user_id = @user", connection);
-            getEmail.Parameters.AddWithValue("@user", user_id);
-
-            SqlDataReader emailReader = getEmail.ExecuteReader();
-            if(emailReader.Read())
+            // reduce amount at product table
+            SqlCommand cmd3 = new SqlCommand("update PRODUCT set PRODUCT.amount = PRODUCT.amount - CART.amount"+
+                " from CART where PRODUCT.product_id = CART.product_id and CART.user_id = @user and PRODUCT.amount > 0;");
+            cmd3.Parameters.AddWithValue("@user", user_id);
+            int productRowAffected = cmd3.ExecuteNonQuery();
+            if (productRowAffected != cart_amount)
             {
-                email = (string)emailReader[0];
+                Response.Write("<script>alert('Error in updating transaction information 4');</script>");
+                connection.Close();
+                return;
             }
-            emailReader.Close();
 
-            Mail.Mail.SendTransactionDone(email, transaction_id);
+            // send Email to buyer and seller
+            Mail.Mail.sendTransactionEmails(transaction_id);
 
-
-            /*
             // clear the user cart
-            SqlCommand cmd3 = new SqlCommand("delete from CART where user_id = @user", connection);
+            SqlCommand cmd4 = new SqlCommand("delete from CART where user_id = @user and product_id in (select product_id from PRODUCT where amount>0)", connection);
             cmd3.Parameters.AddWithValue("@user", user_id);
 
-            int cartRowAffected = cmd3.ExecuteNonQuery();
+            int cartRowAffected = cmd4.ExecuteNonQuery();
             if (cartRowAffected != cart_amount)
             {
                 Response.Write("<script>alert('Error in updating transaction information 4');</script>");
@@ -195,8 +194,6 @@ namespace PE2_Group_Assg.WebForm
                 connection.Close();
                 Response.Redirect("ProductListPage.aspx");
             }
-            */
-            
         }
     }
 }

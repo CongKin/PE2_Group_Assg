@@ -103,7 +103,7 @@ namespace PE2_Group_Assg.WebForm
                     Session["user_id"] = Database.Database.Base64Encode(user_id.ToString());
                     reader2.Close();
                     connection.Close();
-                    Response.Redirect("HomePage.aspx");
+                    Response.Redirect("ProductListPage.aspx");
                 }
                 else
                 {

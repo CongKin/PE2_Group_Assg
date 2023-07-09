@@ -16,7 +16,6 @@ namespace PE2_Group_Assg.WebForm
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Session["user_id"] = Database.Database.Base64Encode("6");
 
             // drop down list - category 
             SqlConnection connection = new SqlConnection(Database.Database.getConnectionString());
