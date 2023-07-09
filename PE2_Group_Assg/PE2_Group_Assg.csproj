@@ -165,7 +165,9 @@
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="Images\add-icon.png" />
     <Content Include="Images\cod-icon.png" />
+    <Content Include="Images\home-page.jpg" />
     <Content Include="Images\homepage.png" />
     <Content Include="Images\cart-icon.png" />
     <Content Include="Images\search-icon.png" />

@@ -128,6 +128,25 @@
         .content{
             width:80%;
         }
+
+        .navbar img{
+            width:30px;
+            height:30px;
+        }
+
+        .navbar li{
+            margin-right:5px;
+            margin-left:5px;
+        }
+
+        .head{
+            padding-top: 10px;
+            padding-bottom:10px;
+        }
+
+        .welcome{
+            margin-left:110px;
+        }
     </style>
     <asp:ContentPlaceHolder ID="head" runat="server">
         
@@ -136,7 +155,7 @@
 <body>
     <form id="form1" runat="server">
         <div class="container-fluid" >
-            <div class="bg-grey">
+            <div class="bg-grey head">
                 <div class="row align-items-center custom-row">
                     <div class="col-md-4 text-center" >
                         <h1>Campus Trade</h1>
@@ -158,58 +177,38 @@
                             <ul class="navbar-nav ml-auto">
                                 <li class="nav-item d-flex align-items-center">
                                     <img class="userIcon" src="../Images/user-icon.png" alt="" />
-                                    <a class="nav-link" href="#">Login</a>
+                                    <asp:LinkButton ID="account_button" runat="server" Text="Login" CssClass="nav-link" OnClick="account_clicked"></asp:LinkButton>
                                 </li>
                                 <li class="nav-item d-flex align-items-center">
                                     <img class="cartIcon" src="../Images/cart-icon.png" alt=""/>
-                                    <a class="nav-link" href="#">Cart</a>
+                                    <asp:LinkButton ID="cart_button" runat="server" Text="Cart" CssClass="nav-link"></asp:LinkButton>
                                 </li>
                                 <li class="nav-item d-flex align-items-center">
-                                    <img class="wishlistIcon" src="../Images/wishlist-icon.png" alt=""/>
-                                    <a class="nav-link" href="#">Wishlist</a>
+                                    <img class="wishlistIcon" src="../Images/add-icon.png" alt=""/>
+                                    <asp:LinkButton ID="add_button" runat="server" Text="Add Product" CssClass="nav-link"></asp:LinkButton>
                                 </li>
                             </ul>
                         </nav>
                     </div>
                 </div>
-                <nav class="navbar navbar-expand-lg navbar-light" >
-                    <div class="collapse navbar-collapse ">
-                        <ul class="navbar-nav mr-auto">
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Home</a>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link" href="#" id="categoriesDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Categories
-                                </a>
-                                
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Add Product</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Transaction</a>
-                            </li>
-                        </ul>
-                    </div>
-                </nav>
+                <asp:Label ID="welcome" runat="server" Text="Welcome user" CssClass="welcome"></asp:Label>
             </div>
             <div class="row bg-grey custom-row" style="margin: 0; padding:0; width: 100%; height: 500px;" >
                 <div class="col-md-6 align-items-center" style="width:50%;margin: 0; padding:0;">
-                    <img src="../Images/homepage.png" alt="Image" class="img-fluid custom-img"/>
+                    <img src="../Images/home-page.jpg" alt="Image" class="img-fluid custom-img"/>
                 </div>
                 <div class="col-md-6 bg-grey-text" style="width:50%; margin:0; padding: 0; max-width:100%;">
                     <div class="row align-items-center justify-content-center" style="width:100%; margin: 0;">
                         <div class="col-md-10 text-center" style="width:100%; margin: 0; padding: 0 100px 0 100px;">
-                            <h1>Your text description here...</h1>
-                            <p>Your text description here...</p>
-                            <a href="#" class="btn btn-primary">Shop Now</a>
+                            <h1>Campus Trade: Your Student Marketplace</h1>
+                            <h6>Discover great deals on second-hand items from textbooks to electronics. Buy and sell with fellow students on Campus Connect. Save money and reduce waste. Join today!</h6>
+                            <a href="#product" class="btn btn-primary">Shop Now</a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="productListContainer">
+        <div class="productListContainer" id="product">
             <div class="catColumn">
                 <asp:DataList ID="catList" CssClass="catList" runat="server" RepeatColumns="1" RepeatDirection="Horizontal" OnItemCommand="categoryList_ItemCommand">
                     <ItemTemplate>

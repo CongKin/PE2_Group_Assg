@@ -13,19 +13,30 @@ namespace PE2_Group_Assg.WebForm
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            /*DataTable categories = GetCategories();
+            //Session["user_id"] = Database.Database.Base64Encode("6");
 
-            catList.DataSource = categories;
-            catList.DataBind();*/
+            // check user is login or not
+            if (isLogin())
+            {
+                account_button.Text = "Logout";
+                welcome.Text = "Welcome, " + getName();
+            }
+            else
+            {
+                account_button.Text = "Login";
+                welcome.Text = "Welcome, user";
+            }
+
+            
             // Retrieve categories from the database
             List<Category> categories = new List<Category>();
-            
             
             categories = GetCategoriesFromDatabase();
 
             // Bind the categories to the list control
             catList.DataSource = categories;
             catList.DataBind();
+
 
         }
 
@@ -47,6 +58,32 @@ namespace PE2_Group_Assg.WebForm
 
                 // Redirect to another page and pass the category ID as a query parameter
                 Response.Redirect("ProductListPage.aspx?categoryId=" + categoryId);
+            }
+        }
+
+        protected void account_clicked(object sender, EventArgs e)
+        {
+            if(!isLogin())
+            {
+                Response.Redirect("Login.aspx");
+            }
+            else
+            {
+                Session["user_id"] = null;
+                Page.Response.Redirect(Page.Request.Url.ToString(), true);
+            }
+        }
+
+        protected void cart_clicked(object sender, EventArgs e)
+        {
+            if(!isLogin())
+            {
+                Response.Write("<script>alert('You haven't login, Please login to your account');</script>");
+                Response.Redirect("Login.aspx");
+            }
+            else
+            {
+                Response.Redirect("Login.aspx");
             }
         }
 
@@ -92,6 +129,34 @@ namespace PE2_Group_Assg.WebForm
         {
             public int CategoryId { get; set; }
             public string CategoryName { get; set; }
+        }
+
+        private bool isLogin()
+        {
+            if (Session["user_id"] == null)
+                return false;
+            else
+                return true;
+        }
+
+        private string getName()
+        {
+            int user_id = int.Parse(Database.Database.Base64Decode(Session["user_id"].ToString()));
+            string name = string.Empty;
+            SqlConnection connection = new SqlConnection(Database.Database.getConnectionString());
+            connection.Open();
+            SqlCommand command = new SqlCommand("select first_name, last_name from [USER] where user_id = @user", connection);
+            command.Parameters.AddWithValue("@user", user_id);
+            SqlDataReader reader = command.ExecuteReader();
+            if(reader.Read())
+            {
+                name += (string)reader[0];
+                name += " ";
+                name += (string)reader[1];
+            }
+            reader.Close();
+            connection.Close();
+            return name;
         }
 
         /*private DataTable GetCategories()

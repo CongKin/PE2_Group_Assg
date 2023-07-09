@@ -22,14 +22,15 @@
         .product{
             width: 100%;
             height: 100%;
-            padding: 0 20px 30px 30px;
-            text-align: center;
+            padding: 10px 20px 30px 30px;
+            
         }
         .catTitle{
             font-family: "Arial";
             font-size: 25px;
             font-weight: 900;
             letter-spacing: 1px;
+            margin-left:50px;
         }
         .listContainer{
             min-height: 450px;
