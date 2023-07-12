@@ -42,7 +42,7 @@ namespace PE2_Group_Assg.WebForm
                 veri_code = random.Next(1, 999999).ToString("D6");
 
                 Mail.Mail.SendVerificationCode(email_text, veri_code);
-                Response.Write("<script>alert('The verification code is sent to to your email " + veri_code + "');</script>");
+                Response.Write("<script>alert('The verification code is sent to to your email');</script>");
             }
         }
 
