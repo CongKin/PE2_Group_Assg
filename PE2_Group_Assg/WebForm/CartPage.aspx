@@ -230,7 +230,6 @@
             var totalPrice = quantity * pricePerUnit;
 
             priceLabel.innerHTML = totalPrice.toFixed(2);
-            alert("priceLabel updated");
             updateSubtotal();
         }
         function updateSubtotal() {
@@ -244,54 +243,9 @@
             }
 
             subtotalLabel.innerHTML = "RM " + subtotal.toFixed(2);
-            alert("subtotal updated");
-        }
-        function updateQuantityInDatabase(productId, quantity) {
-            // Prepare the data for submission
-            var formData = new FormData();
-            formData.append("productId", productId);
-            formData.append("quantity", quantity);
-
-            // Make an AJAX request to update the quantity in the database
-            var xhr = new XMLHttpRequest();
-            xhr.open("POST", window.location.href, true);
-            xhr.onreadystatechange = function () {
-                if (xhr.readyState === 4 && xhr.status === 200) {
-                    // Success, do something if needed
-                }
-            };
-            xhr.send(formData);
         }
 
-        function save() {
-            var qtyInputs = document.querySelectorAll(".qtyInput");
-            var updatedProducts = [];
-
-            for (var i = 0; i < qtyInputs.length; i++) {
-                var qtyInput = qtyInputs[i];
-                var currentItem = qtyInput.closest("tr");
-                var productId = qtyInput.getAttribute("data-productid");
-                var quantity = parseFloat(qtyInput.value);
-
-                updateQuantityInDatabase(productId, quantity);
-                updatedProducts.push(productId);
-            }
-
-            // Redirect to the desired page after updating all quantities
-            window.location.href = "ProductListPage.aspx?updatedProducts=" + encodeURIComponent(updatedProducts.join(","));
-        }
-
-        var qtyInputs = document.querySelectorAll(".qtyInput");
-        for (var i = 0; i < qtyInputs.length; i++) {
-            qtyInputs[i].addEventListener("change", function () {
-                updatePrice(this);
-            });
-        }
-
-        var confirmButton = document.getElementById("saveBtn");
-        if (confirmButton) {
-            confirmButton.addEventListener("click", save);
-        }
+        
 
         function saveConfirmation() {
             var result = confirm("Continue without saving?");

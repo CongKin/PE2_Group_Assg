@@ -129,6 +129,7 @@ namespace PE2_Group_Assg
 
         protected void save_OnClick(object sender, EventArgs e)
         {
+
             foreach (DataListItem item in cartList.Items)
             {
                 HtmlInputGenericControl qtyInput = (HtmlInputGenericControl)item.FindControl("qtyInput");
@@ -138,9 +139,10 @@ namespace PE2_Group_Assg
                     int quantity = Convert.ToInt32(qtyInput.Value);
 
                     UpdateQuantityInDatabase(productId, quantity);
-                    Page.Response.Redirect(Page.Request.Url.ToString(), true);
                 }
             }
+
+            Page.Response.Redirect(Page.Request.Url.ToString(), true);
         }
 
         protected void checkout_OnClick(object sender, EventArgs e)
@@ -182,7 +184,6 @@ namespace PE2_Group_Assg
                 int userId = int.Parse(Database.Database.Base64Decode(Session["user_id"].ToString()));
                 cmd2.Parameters.AddWithValue("@userID", userId);
                 cmd2.ExecuteNonQuery();
-                Response.Write("<script>alert('deleted');</script>");
             }
             else
             {
@@ -190,7 +191,7 @@ namespace PE2_Group_Assg
                 cmd3.Parameters.AddWithValue("@productID", productId);
                 cmd3.Parameters.AddWithValue("@amount", quantity.ToString());
                 cmd3.ExecuteNonQuery();
-                
+
             }
            
             connection.Close();
