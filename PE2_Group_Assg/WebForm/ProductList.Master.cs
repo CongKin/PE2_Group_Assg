@@ -15,7 +15,7 @@ namespace PE2_Group_Assg.WebForm
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            Mail.Mail.sendTransactionEmails(1005);
+            
 
             // check user is login or not
             if (isLogin())
