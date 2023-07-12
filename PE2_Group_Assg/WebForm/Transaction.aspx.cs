@@ -167,6 +167,7 @@ namespace PE2_Group_Assg.WebForm
                 " from CART where PRODUCT.product_id = CART.product_id and CART.user_id = @user and PRODUCT.amount > 0;", connection);
             cmd3.Parameters.AddWithValue("@user", user_id);
             int productRowAffected = cmd3.ExecuteNonQuery();
+            
             if (productRowAffected <= 0)
             {
                 Response.Write("<script>alert('Error in updating transaction information 4');</script>");
@@ -178,13 +179,13 @@ namespace PE2_Group_Assg.WebForm
             Mail.Mail.sendTransactionEmails(transaction_id);
 
             // clear the user cart
-            SqlCommand cmd4 = new SqlCommand("delete from CART where user_id = @user and product_id in (select product_id from PRODUCT where amount>0)", connection);
+            SqlCommand cmd4 = new SqlCommand("delete from CART where user_id = @user", connection);
             cmd4.Parameters.AddWithValue("@user", user_id);
 
             int cartRowAffected = cmd4.ExecuteNonQuery();
             if (cartRowAffected <= 0)
             {
-                Response.Write("<script>alert('Error in updating transaction information 4');</script>");
+                Response.Write("<script>alert('Error in updating transaction information 5');</script>");
                 connection.Close();
                 return;
             }

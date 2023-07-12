@@ -248,7 +248,6 @@
     <Content Include="Bundle.config" />
     <Content Include="Site.Mobile.Master" />
     <Content Include="WebForm\ProductImageHandler.ashx" />
-    <Content Include="WebForm\Account.Master" />
     <Content Include="WebForm\ProductList.Master" />
   </ItemGroup>
   <ItemGroup>

@@ -36,7 +36,7 @@
             min-height: 450px;
             background: #F5F5F7;            
             border-radius: 10px;
-            width: 95%;
+            width: fit-content;
             text-align: center;
             padding: 0;
         }

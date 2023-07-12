@@ -92,91 +92,97 @@ namespace PE2_Group_Assg.WebForm
         {
             SqlConnection connection = new SqlConnection(Database.Database.getConnectionString());
             string productId = Request.QueryString["productId"];
-            int user_id = int.Parse(Database.Database.Base64Decode(Session["user_id"].ToString()));
-            int max_amount = 0;
-            int cart_amount = 0;
-            int amount = int.Parse(qty.Value);
+            if (Session["user_id"] != null){
+                int user_id = int.Parse(Database.Database.Base64Decode(Session["user_id"].ToString()));
+                int max_amount = 0;
+                int cart_amount = 0;
+                int amount = int.Parse(qty.Value);
 
-            connection.Open();
 
-            // get maximum amount of the product
-            SqlCommand getMaxAmount = new SqlCommand("select amount from PRODUCT where product_id = @product", connection);
-            getMaxAmount.Parameters.AddWithValue("@product", productId);
-            SqlDataReader maxReader = getMaxAmount.ExecuteReader();
-            if(maxReader.Read())
-            {
-                max_amount = (int)maxReader[0];
-                maxReader.Close();
-            }
-            else
-            {
-                Response.Write("<script>alert('The item is unvailable. Sorry');</script>");
-                maxReader.Close();
-                connection.Close();
-                return;
-            }
 
-            // check the item is in the cart or not
-            SqlCommand cmd = new SqlCommand("select amount from CART where user_id = @user and product_id = @product", connection);
-            cmd.Parameters.AddWithValue("@user", user_id);
-            cmd.Parameters.AddWithValue("@product", productId);
-            SqlDataReader reader = cmd.ExecuteReader();
-            if (reader.Read())
-            {
-                cart_amount = (int)reader[0];
-            }
-            reader.Close();
+                connection.Open();
 
-            // calculate total amount to add into cart
-            if(cart_amount + amount > max_amount)
-            {
-                Response.Write("<script>alert('You have exceed the limit of the product. Please check your cart.');</script>");
-                connection.Close();
-                return;
-            }
-
-            // insert or update
-            if(cart_amount > 0)
-            {
-                // if the user has the item in cart
-                SqlCommand cmd3 = new SqlCommand("update CART set amount = @amount where user_id = @user and product_id = @product");
-                cmd3.Parameters.AddWithValue("@amount", cart_amount + amount);
-                cmd3.Parameters.AddWithValue("@user", user_id);
-                cmd3.Parameters.AddWithValue("@product", productId);
-
-                int accountRowAffected = cmd3.ExecuteNonQuery();
-                if (accountRowAffected > 0)
+                // get maximum amount of the product
+                SqlCommand getMaxAmount = new SqlCommand("select amount from PRODUCT where product_id = @product", connection);
+                getMaxAmount.Parameters.AddWithValue("@product", productId);
+                SqlDataReader maxReader = getMaxAmount.ExecuteReader();
+                if (maxReader.Read())
                 {
-                    Response.Write("<script>alert('The item is added to your cart');</script>");
-                    return;
+                    max_amount = (int)maxReader[0];
+                    maxReader.Close();
                 }
                 else
                 {
-                    Response.Write("<script>alert('Error in updating cart');</script>");
-                }
-            }
-            else
-            {
-                // if user do not has the item in cart
-                SqlCommand cmd2 = new SqlCommand("insert into CART (user_id, product_id, amount) values (@user_id, @product_id, @quantity);", connection);
-                cmd2.Parameters.AddWithValue("@user_id", user_id);
-                cmd2.Parameters.AddWithValue("@product_id", productId);
-                cmd2.Parameters.AddWithValue("@quantity", amount);
-
-                int accountRowAffected = cmd2.ExecuteNonQuery();
-                if (accountRowAffected > 0)
-                {
-                    Response.Write("<script>alert('The item is added to your cart');</script>");
-                    //Response.Write("<script>function showPopup() { var result = confirm('Do you want to proceed?'); if (result) { window.location.href = 'CartPage.aspx'; } else {  } } showPopup(); </script>");
+                    Response.Write("<script>alert('The item is unvailable. Sorry');</script>");
+                    maxReader.Close();
+                    connection.Close();
                     return;
+                }
+
+                // check the item is in the cart or not
+                SqlCommand cmd = new SqlCommand("select amount from CART where user_id = @user and product_id = @product", connection);
+                cmd.Parameters.AddWithValue("@user", user_id);
+                cmd.Parameters.AddWithValue("@product", productId);
+                SqlDataReader reader = cmd.ExecuteReader();
+                if (reader.Read())
+                {
+                    cart_amount = (int)reader[0];
+                }
+                reader.Close();
+
+                // calculate total amount to add into cart
+                if (cart_amount + amount > max_amount)
+                {
+                    Response.Write("<script>alert('You have exceed the limit of the product. Please check your cart.');</script>");
+                    connection.Close();
+                    return;
+                }
+
+                // insert or update
+                if (cart_amount > 0)
+                {
+                    // if the user has the item in cart
+                    SqlCommand cmd3 = new SqlCommand("update CART set amount = @amount where user_id = @user and product_id = @product");
+                    cmd3.Parameters.AddWithValue("@amount", cart_amount + amount);
+                    cmd3.Parameters.AddWithValue("@user", user_id);
+                    cmd3.Parameters.AddWithValue("@product", productId);
+
+                    int accountRowAffected = cmd3.ExecuteNonQuery();
+                    if (accountRowAffected > 0)
+                    {
+                        Response.Write("<script>alert('The item is added to your cart');</script>");
+                        return;
+                    }
+                    else
+                    {
+                        Response.Write("<script>alert('Error in updating cart');</script>");
+                    }
                 }
                 else
                 {
-                    Response.Write("<script>alert('Error in updating cart');</script>");
-                }
-            }
+                    // if user do not has the item in cart
+                    SqlCommand cmd2 = new SqlCommand("insert into CART (user_id, product_id, amount) values (@user_id, @product_id, @quantity);", connection);
+                    cmd2.Parameters.AddWithValue("@user_id", user_id);
+                    cmd2.Parameters.AddWithValue("@product_id", productId);
+                    cmd2.Parameters.AddWithValue("@quantity", amount);
 
+                    int accountRowAffected = cmd2.ExecuteNonQuery();
+                    if (accountRowAffected > 0)
+                    {
+                        Response.Write("<script>alert('The item is added to your cart');</script>");
+                        //Response.Write("<script>function showPopup() { var result = confirm('Do you want to proceed?'); if (result) { window.location.href = 'CartPage.aspx'; } else {  } } showPopup(); </script>");
+                        return;
+                    }
+                    else
+                    {
+                        Response.Write("<script>alert('Error in updating cart');</script>");
+                    }
+                }
+
+            }
         }
+
+            
 
         /*protected void button_ClickMinus(object sender, EventArgs e)
         {
